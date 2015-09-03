@@ -15,22 +15,22 @@ global epsilon
 global taux tauy
 
 %% space data
-N=31;
+N=127;
 h=1/(N+1);
 x=0:h:1;
 y=x;
 [X,Y]=meshgrid(x,y);
 
 %% time data
-dt=1e-5;
+dt=0.001;
 Tmax=0.1;
 taux=1;
 tauy=1;
 
 %% initial and problem data
 epsilon=1e-2;
-%U=reshape(2*rand(N+2,N+2)-1,[],1);
-U=reshape(cos(pi*X).*cos(pi*Y),[],1);
+U=reshape(2*rand(N+2,N+2)-1,[],1);
+%U=reshape(cos(pi*X).*cos(pi*Y),[],1);
 
 %% Laplacian matrix with Neumann boundaries conditions
 A=-2*speye(N+2,N+2)+diag(ones(N+1,1),1)+diag(ones(N+1,1),-1);

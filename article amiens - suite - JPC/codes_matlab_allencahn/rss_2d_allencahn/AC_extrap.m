@@ -1,4 +1,4 @@
-%clc; clear all; close all;
+clc; clear all; close all;
 
 %% Allen Cahn 2D extrapolé
 

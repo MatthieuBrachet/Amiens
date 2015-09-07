@@ -52,10 +52,10 @@ I=speye(size(Ax));
 
 for i=1:floor(Tmax/dt)
     
-    %pause(plot_step)
-    %figure(1)
-    %contourf(X,Y,reshape(U,N+2,N+2))
-    %colorbar
+    pause(plot_step)
+    figure(1)
+    contourf(X,Y,reshape(U,N+2,N+2))
+    colorbar
     
     clc; i*dt
     

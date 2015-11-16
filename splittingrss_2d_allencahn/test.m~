@@ -1,20 +1,18 @@
 clc; clear all; close all;
 
-n=100;
+n=10;
 h=1/(n+1);
 x=[0:h:1]';
 [X,Y]=meshgrid(x,x);
-u=reshape(cos(3*pi*X).*cos(3*pi*Y),[],1);
+u=reshape(cos(3*pi*X).*cos(pi*Y),[],1);
 
 [a0,M,N] = Mlaplacien2(n,4);
 Id=speye(size(N));
-Mx=kron(M,Id);
-My=kron(Id,M);
-Nx=kron(N,Id);
-Ny=kron(Id,N);
+M=kron(M,Id)+kron(Id,M);
+N=kron(N,Id)+kron(Id,N);
 
-duapp=Mx\(Nx*u)+My\(Ny*u);
-ddu=18*pi^2.*u;
+duapp=M\(N*u);
+ddu=10*pi^2.*u;
 
 DUe=reshape(ddu,size(X));
 DUapp=reshape(duapp,size(X));

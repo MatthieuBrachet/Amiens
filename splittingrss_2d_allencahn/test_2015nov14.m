@@ -37,5 +37,5 @@ U0=reshape(sol_exacte(0),[],1);
 %% figure
 
 figure(1)
-plot(T,Eg,T,Erss)
+semilogy(T,Eg,T,Erss)
 legend('classic','residual smoothing scheme',2)

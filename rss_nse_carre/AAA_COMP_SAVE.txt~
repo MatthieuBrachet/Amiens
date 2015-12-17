@@ -1,0 +1,17 @@
+date : 13-Dec-2015
+ref. : 7363116457
+***********************************
+---------- numerical data ---------
+fine   grid       : 127
+coarse grid       : 64
+time step         : 0.001
+tau               : 1
+-------- mathematical data --------
+Re                : 100
+------------ results --------------
+final time        : 5
+error psi         : 0.00024313
+error omega       : 0.99788
+***********************************
+  
+  

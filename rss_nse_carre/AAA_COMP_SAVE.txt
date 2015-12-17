@@ -1,0 +1,51 @@
+date : 13-Dec-2015
+ref. : 7363116457
+***********************************
+---------- numerical data ---------
+fine   grid       : 127
+coarse grid       : 63
+time step         : 0.001
+tau               : 1
+-------- mathematical data --------
+Re                : 100
+------------ results --------------
+final time        : 5
+error psi         : 0.00024313
+error omega       : 0.99788
+***********************************
+  
+  
+date : 13-Dec-2015
+ref. : 7363116590
+***********************************
+---------- numerical data ---------
+fine   grid       : 127
+coarse grid       : 63
+time step         : 0.001
+tau               : 1
+-------- mathematical data --------
+Re                : 100
+------------ results --------------
+final time        : 5
+error psi         : 8.4878e-05
+error omega       : 0.038413
+***********************************
+  
+  
+date : 13-Dec-2015
+ref. : 7363117024
+***********************************
+---------- numerical data ---------
+fine   grid       : 255
+coarse grid       : 127
+time step         : 0.001
+tau               : 1
+-------- mathematical data --------
+Re                : 100
+------------ results --------------
+final time        : 5
+error psi         : 8.5786e-05
+error omega       : 1.9327
+***********************************
+  
+  

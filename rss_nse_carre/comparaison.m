@@ -18,7 +18,7 @@ global cavite
 %% *** options ************************************************************
 % si sauvegarde = 1 : sauvegarder les graphes;
 %               = 0 : ne pas sauvegarder.
-sauvegarde = 1;
+sauvegarde = 0;
 % si cavite = 1 : cavité raide
 %           = 2 : cavite regularisée
 cavite = 1;
@@ -42,7 +42,7 @@ t=0;
 
 %% *** déclaration des données ********************************************
 %% données en espace
-N=127;
+N=255;
 h=1/(N+1);
 x=[h:h:1-h]';
 y=x;
@@ -161,11 +161,13 @@ WW511c=WW511(2:2:end-1,2:2:end-1);
 X=X(2:2:end-1,2:2:end-1);
 Y=Y(2:2:end-1,2:2:end-1);
 
-E_PP=abs(PP511c-PP255);
-E_WW=abs(WW511c-WW255);
+%E_PP=abs(PP511c-PP255);
+%E_WW=abs(WW511c-WW255);
+%e_pp=max(max(E_PP));
+%e_ww=max(max(E_WW));
 
-e_pp=max(max(E_PP));
-e_ww=max(max(E_WW));
+e_pp=(sum(sum(abs(PP511c-PP255)).^2)).^(1/2)
+e_ww=(sum(sum(abs(WW511c-WW255)).^2)).^(1/2)
 
 %% sauvegarde
 ref=floor(10000*now);

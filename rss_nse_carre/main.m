@@ -32,12 +32,12 @@ y=x;
 
 %% données en temps
 Tmax=1000;
-dt=0.001;
+dt=0.01;
 t=0;
 
 %% autres données
 tau=1;
-Re=1000;
+Re=100;
 E=[]
 
 matrice_data

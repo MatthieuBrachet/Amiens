@@ -3,6 +3,19 @@
 clc; clear all; close all;
 format short
 
+global cavite
+
+%% *** options ************************************************************
+% si sauvegarde = 1 : sauvegarder les graphes;
+%               = 0 : ne pas sauvegarder.
+sauvegarde = 1;
+% si cavite = 1 : cavité raide,
+%           = 2 : cavite regularisée.
+cavite = 2;
+% si film = 1 : faire le film,
+%    film = 0 : ne pas faire.
+film = 1;
+
 %% données en espace
 N=31;
 h=1/(N+1);

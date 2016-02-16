@@ -1,0 +1,17 @@
+date : 15-Feb-2016
+ref. : 7363757052
+***********************************
+---------- numerical data ---------
+number of points  : 63
+time step         : 0.01
+tau               : 1
+-------- mathematical data --------
+Re                : 100
+------------ results --------------
+final time        : 15.6
+convergence data  : 9.9512e-06
+primary vortex    : 1.2334e-05      0.9375      0.0625
+secondary vortex  : -0.10326     0.60938     0.73438
+***********************************
+  
+  

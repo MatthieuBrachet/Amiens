@@ -85,6 +85,11 @@ while t < Tmax
         
     Ei_pp=[Ei_pp e_pp];
     Ei_ww=[Ei_ww e_ww];
+    
+    if Ei_pp(end) > 100 || Ei_ww(end) > 100
+        error('instability : choose different dt or tau')
+        break
+    end
         
     % norme 2
     norme = 2;

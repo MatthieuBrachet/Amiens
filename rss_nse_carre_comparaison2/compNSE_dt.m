@@ -9,35 +9,34 @@ cavite = 1;
 
 %% *** données ************************************************************
 
-N=127;
-dt=0.01;
+N=31;
+tau=1; 
 Tmax=5;
-Re=1000;
+Re=100;
 
 
 %% *** calculs ************************************************************
-tau1=1;
-[ ~, ~, ~, Ei_pp1, ~, ~, Ei_ww1 ] = compNSE(N,dt,Tmax, tau1,Re);
+dt1=0.016;
+[ T1, ~, ~, Ei_pp1, ~, ~, Ei_ww1 ] = compNSE(N,dt1,Tmax,tau,Re);
 
-tau2=250;
-[ ~, ~, ~, Ei_pp2, ~, ~, Ei_ww2 ] = compNSE(N,dt,Tmax, tau2,Re);
+dt2=0.01;
+[ T2, ~, ~, Ei_pp2, ~, ~, Ei_ww2 ] = compNSE(N,dt2,Tmax,tau,Re);
 
-tau3=1000;
-[ T, ~, ~, Ei_pp3, ~, ~, Ei_ww3 ] = compNSE(N,dt,Tmax, tau3,Re);
+dt3=0.001;
+[ T3, ~, ~, Ei_pp3, ~, ~, Ei_ww3 ] = compNSE(N,dt3,Tmax,tau,Re);
 
 %% graphes
 figure(1)
 subplot(121)
-semilogy(T,Ei_pp1,'k.',T,Ei_pp2,'k--',T,Ei_pp3,'k-')
 title(['error on psi - ', num2str(Re)])
-legend(['tau = ', num2str(tau1)],['tau = ', num2str(tau2)],['tau = ', num2str(tau3)])
+semilogy(T1,Ei_pp1,'k.',T2,Ei_pp2,'k--',T3,Ei_pp3,'k-')
+legend(['dt = ', num2str(dt1)],['dt = ', num2str(dt2)],['dt = ', num2str(dt3)])
 xlabel('time')
 ylabel('relative error')
 
 subplot(122)
-semilogy(T,Ei_ww1,'k.',T,Ei_ww2,'k--',T,Ei_ww3,'k-')
 title(['error on omega - ', num2str(Re)])
-legend(['tau = ', num2str(tau1)],['tau = ', num2str(tau2)],['tau = ', num2str(tau3)])
+semilogy(T1,Ei_ww1,'k.',T2,Ei_ww2,'k--',T3,Ei_ww3,'k-')
+legend(['dt = ', num2str(dt1)],['dt = ', num2str(dt2)],['dt = ', num2str(dt3)])
 xlabel('time')
 ylabel('relative error')
-

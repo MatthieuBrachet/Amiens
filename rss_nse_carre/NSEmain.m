@@ -16,33 +16,27 @@ global Re
 global cavite
 
 %% *** options ************************************************************
-% si sauvegarde = 1 : sauvegarder les graphes;
+% si sauvegarde = 1 : sauvegarder les graphes et les données,
 %               = 0 : ne pas sauvegarder.
 sauvegarde = 1;
 % si cavite = 1 : cavité raide,
 %           = 2 : cavite regularisée.
 cavite = 2;
-% si film = 1 : faire le film,
-%    film = 0 : ne pas faire.
-film = 1;
+% si film = 1 : faire le film avec psi,
+%    film = 2 : faire le film avec omega,
+%    film = 0 : ne pas faire de film.
+film = 2;
 
 %% physical data
 Re=3200;
 
 %% temps de la comparaison
-Tmax=1000;
-dt=0.0001;
+Tmax=50;
+dt=0.0005;
 itemax=floor(Tmax./dt);
 t=0;
 
 ref=floor(10000*now);
-%% ************************************************************************
-%
-%
-%                          CALCUL AVEC N=255
-%
-%
-%% ************************************************************************
 
 %% *** déclaration des données ********************************************
 %% données en espace
@@ -55,8 +49,12 @@ y=x;
 %% autres données
 tau=1;
 E=[];
+iter=0;
 
-if film==1
+if film==1 | 2
+    % options de film
+    nbim=200;%(=5 when dt=0.01)
+    
     mkdir(['./video-' date ])
     mov=avifile(['./video-' date '/ref_' num2str(ref) '_NSE.avi'],'compression','None');
     fig=figure;
@@ -67,8 +65,11 @@ matrice_data
 [Psi,W] = Stokes();
 %% boucle;
 r=1;
-while r > 10^-5 & t < Tmax - dt/2
-    clc;  [t log10(r)]
+while r > 10^-4 & t < Tmax - dt/2
+    cc=floor(iter/nbim) - iter/nbim
+    clc;  [t cc log10(r)]
+    iter=iter+1;
+    
     [bx,by] = bord(Psi);
     [W0] = Convect_diff(dt/2,bx,by,Psi,W,tau);
     [Psi0] = Poisson(N,W0);
@@ -94,29 +95,54 @@ while r > 10^-5 & t < Tmax - dt/2
     end
     
     if film==1
-       PP=matrice(Psi);
-       [IPP1] = level(PP,-1,-0.8*10^-5);
-       SPP1=PP-IPP1;
+        if floor(iter/nbim) - iter/nbim == 0
+           disp('boucle')
+           PP=matrice(Psi);
+           [IPP1] = level(PP,-1,-0.8*10^-5);
+           SPP1=PP-IPP1;
 
-       %figure(100);
-       hold on
-       title(['time : ', num2str(t)])
-       contour(X,Y,PP,20);
-       contour(X,Y,SPP1,5);
-       xlabel('x')
-       ylabel('y')
-       title('Psi')
-       axis([0 1 0 1])
-       
-       frame = getframe(fig, [0 0 560 420]);
-       mov = addframe(mov,frame); 
-       hold off
+           hold on
+           contour(X,Y,PP,20);
+           contour(X,Y,SPP1,5);
+           xlabel('x')
+           ylabel('y')
+           title(['Psi - time : ', num2str(t)])
+           axis([0 1 0 1])
+           
+           %film
+           frame = getframe(fig, [0 0 560 420]);
+           mov = addframe(mov,frame); 
+           hold off
+           
+           close
+        end
+    elseif film==2
+        if floor(iter/nbim) - iter/nbim == 0
+           disp('boucle')
+           WW=matrice(W);
+
+           hold on
+           contour(X,Y,WW,200)
+           xlabel('x')
+           ylabel('y')
+           title(['Omega - time : ', num2str(t)])
+           axis([0 1 0 1])
+           hold off
+           
+           %film
+           frame = getframe(fig, [0 0 560 420]);
+           mov = addframe(mov,frame); 
+           hold off
+           
+           close
+        end
     end
-    close
+    
+    
 end
 
+
 %% sauvegarde
-ref=floor(10000*now);
 if sauvegarde == 1
     mkdir(['./NSE-' date ])
     save(['./NSE-' date '/NS_ref_' num2str(ref), '_all.mat'])
@@ -184,13 +210,14 @@ if sauvegarde==1
     fclose(data);
 end
 
-if film == 1
+if film==1 | 2
     close(fig)
     mov=close(mov);
     
     data = fopen('AAA_VIDEO_SAVE.txt','a');
     fprintf(data,'%s\n',['date : ', date]);
     fprintf(data,'%s\n',['ref. : ', num2str(ref)]);
+    fprintf(data,'%s\n',['film : ', num2str(film)]);
     fprintf(data,'%s\n','***********************************');
     fprintf(data,'%s\n','---------- numerical data ---------');
     fprintf(data,'%s\n',['grid              : ', num2str(N)] );

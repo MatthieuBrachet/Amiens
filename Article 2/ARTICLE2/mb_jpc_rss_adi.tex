@@ -1,0 +1,202 @@
+ \documentclass[11pt]{article}
+%\documentstyle[11pt]{article}
+\usepackage{layout}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{color}
+%\usepackage{showkeys}
+\usepackage{latexsym}
+
+\setlength{\textwidth}{16.0cm} 
+\setlength{\textheight}{21.0cm} 
+\setlength{\evensidemargin}{ 0.5cm}
+\setlength{\oddsidemargin} { 0.5cm} 
+\setlength{\topmargin}{-0.5cm} \setlength{\baselineskip}  { 0.7cm}
+
+
+\usepackage{amssymb}
+\usepackage{algorithmicx}
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algpascal}
+\usepackage{algc}
+
+\alglanguage{pseudocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[counterclockwise]{rotating}
+\usepackage{collectbox}
+
+\makeatletter
+\newcommand{\sqbox}{%
+    \collectbox{%
+        \@tempdima=\dimexpr\width-\totalheight\relax
+        \ifdim\@tempdima<\z@
+            \fbox{\hbox{\hspace{-.5\@tempdima}\BOXCONTENT\hspace{-.5\@tempdima}}}%
+        \else
+            \ht\collectedbox=\dimexpr\ht\collectedbox+.5\@tempdima\relax
+            \dp\collectedbox=\dimexpr\dp\collectedbox+.5\@tempdima\relax
+            \fbox{\BOXCONTENT}%
+        \fi
+    }%
+}
+\makeatother
+
+
+
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newcommand{\R}{I\!\!R}
+\def\C{{\rm I\!C}}
+\def\N{{\rm I\!N}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newcommand{\Frac}[2] {\frac{\textstyle #1} {\textstyle #2}}
+\newcommand{\taumin}{\tau_{min}}
+\newcommand{\taumax}{\tau_{max}}
+\newcommand{\sigmin}{\sigma_{min}}
+\newcommand{\sigmax}{\sigma_{max}}
+ \newcommand{\halmos}{\hfill $\;\;\;\Box$\\}
+
+\begin{document}
+
+\title{Stabilized Splitting Schemes for Allen Cahn and Cahn Hillard equations}
+\author{M. Brachet\thanks{Institut Elie Cartan de Lorraine, Universit\'e de Lorraine, Site de Metz, B\^at. A Ile du Saucy, F-57045 Metz Cedex 1, {\tt matthieu.brachet@math.univ-metz.fr}} \and J.-P. Chehab\thanks{
+Laboratoire Amienois de Math\'ematiques Fondamentales et Appliqu\'ees (LAMFA), {\small UMR} 7352,
+ Universit\'e de Picardie Jules Verne, 33 rue Saint Leu, 80039 Amiens France
+ , ({\tt
+ Jean-Paul.Chehab@u-picardie.fr}).} }
+
+
+%\date{}
+
+
+\maketitle
+
+%
+%
+
+
+
+\begin{abstract}
+\end{abstract}
+\section{Introduction}
+\section{The RSS-ADI schemes}
+Let $A$ and $B$ be two $n\times n$ symmetric positive definite matrices. We assume that there exist two strictly positive constant $\alpha$ and $beta$ such that
+\begin{eqnarray}
+\label{Hyp_H}
+\alpha <Bu,u> \le <A u, u> \le \beta <u,u>, \ \forall u \in \R^n
+\end{eqnarray}
+Consider the linear differential system
+$$
+\Frac{dU}{dt}+AU=0
+$$
+with $A=A_1+A_2$. Let $B_1$ and $B_2$ be preconditioners of $A_1$ and $A_2$ respectively and $\tau_1, \ \tau_2$ two positive real numbers. All the matrices are supposed to be symmetric definite positive.
+We introduce the ADI-RSS schemes
+
+\begin{eqnarray}
+\Frac{u^{(k+1/2)}-u^{(k)}}{\Delta t} +\tau_1 B_1 (u^{(k+1/2)}-u^{(k)}) = -A_1 u^{(k)},\\
+\Frac{u^{(k+1)}-u^{(k+1/2)}}{\Delta t} +\tau_2 B_2 (u^{(k+1)}-u^{(k+1/2)}) = -A_2 u^{(k+1/2)},
+\label{RSS_ADI1}
+\end{eqnarray}
+and the Strang's Splitting
+\begin{eqnarray}
+\Frac{u^{(k+1/3)}-u^{(k)}}{\Delta t/2} +\tau_1 B_1 (u^{(k+1/3)}-u^{(k)}) = -A_1 u^{(k)},\\
+\Frac{u^{(k+2/3)}-u^{(k+1/3)}}{\Delta t} +\tau_2 B_2 (u^{(k+2/3)}-u^{(k+1/3)}) = -A_2 u^{(k+1/3)},\\
+\Frac{u^{(k+1)}-u^{(k+2/3)}}{\Delta t/2} +\tau_1 B_1 (u^{(k+1)}-u^{(k+2/3)}) = -A_1 u^{(k+2/3)},
+\label{RSS_ADI2}
+\end{eqnarray}
+Of course these approach can be applied in more general situations, eg
+considering $A=\displaystyle{\sum_{i=1}^m A_i}$ and $B =\displaystyle{\sum_{i=1}^m B_i}$ and the splitting
+\begin{eqnarray}
+\Frac{u^{(k+i/m)}-u^{(k+(i-1)/m)}}{\Delta t} +\tau_i B_i(u^{(k+i/m)}-u^{(k+(i-1)/m)}) = -A_i u^{(k+(i-1)/m)},
+\label{RSS_ADIm}
+\end{eqnarray}
+We recall that
+\begin{proposition}
+Under hypothesis (\ref{Hyp_H}, we have the following stability conditions:
+\begin{itemize}
+\item If $\tau\ge \Frac{\beta}{2}$, the schemes (\ref{RSS_ADI1}) and (\ref{RSS_ADI2}) are unconditionally stable (i.e. stable $\forall \ \Delta t >0$)
+\item If $\tau < \Frac{\beta}{2}$, then the scheme is stable for
+$
+0<\Delta t < \Frac{2}{\left(1-\Frac{2\tau}{\beta}\right)\rho(A)}.
+$
+\end{itemize} 
+\label{RSS_Stab_lin}
+\end{proposition}
+
+As a direct consequence, we can prove the following result
+\begin{proposition}
+Under hypothesis (\ref{Hyp_H}), we have the followig stability conditions:
+\begin{itemize}
+\item If $\tau_i\ge \Frac{\beta_i}{2}$,$i=1,2$ the scheme (\ref{RSS_ADI1})is unconditionally stable (i.e. stable $\forall \ \Delta t >0$)
+\item If $\tau_i < \Frac{\beta_i}{2}$, $i=1,2$, then the scheme is stable for
+$
+0<\Delta t < Min(\Frac{2}{\left(1-\Frac{2\tau_1}{\beta_1}\right)\rho(A_1)},\Frac{2}{\left(1-\Frac{2\tau_2}{\beta_2}\right)\rho(A_2)}).
+$
+\end{itemize} 
+\label{RSS_Stab_ADI}
+\end{proposition}
+\begin{proof}
+It suffices to apply proposition \ref{RSS_Stab_lin} to each system.
+\end{proof}
+\section{Numerical results}
+\subsection{2D Heat Equation}
+see program {\tt chaleur\underline{\ }2D\underline{\ }splitting.m}\\
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=7.5cm, height=7cm]{Heat_2D_strang_splitting1.png}
+\includegraphics[width=7.5cm, height=7cm]{Heat_2D_strang_splitting2.png}\\
+\caption{Solution of  the heat equation with $\Delta t = 0.01$, (left) and $\Delta t = 0.001$ (right) $n=31$, $\tau=1$}
+\label{Strang_splitting_Heat_2D}
+\end{center}
+\end{figure}
+The error is clearly in $\Delta t$.
+\subsection{3D Heat Equation}
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=7.5cm, height=7cm]{Heat_3D_strang_splitting1.png}
+\includegraphics[width=7.5cm, height=7cm]{Heat_3D_strang_splitting2.png}\\
+\caption{Solution of  the 3D heat equation with $\Delta t = 0.01$, (left) and $\Delta t = 0.001$ (right) $n=31$, $\tau=1$}
+\label{Strang_splitting_Heat_2D}
+\end{center}
+\end{figure}
+The error is clearly in $\Delta t$.
+\section{Application to the numerical solution of Phase-Fields problems}
+\subsection{Allen-Cahn's equation}
+\subsection{Cahn-Hilliard's equation}
+\subsubsection{The RSS-Scheme}
+
+\begin{eqnarray*}\label{CHC}
+\Frac{u^{(k+1)}-u^{(k)}}{\Delta t} +A\mu^{(k)+1}=0,\\
+\mu^{(k+1)}=\epsilon Au^{(k+1)}+\Frac{1}{\epsilon}f(u^{(k)},
+\end{eqnarray*}
+We derive the RSS-Scheme from the backward Euler's (\ref{CHC}) by
+replacing $Az^{(k+1)}$ by $\tau B(z^{(k+1)}-z^{(k)})+Az^{(k)}$ for $z=u$ or $z=\mu$. We obtain
+\begin{eqnarray*}
+\Frac{u^{(k+1)}-u^{(k)}}{\Delta t}+\tau B(\mu^{(k+1)}-\mu^{(k)}) +A\mu^{(k)}=0,\\
+\mu^{(k+1)}=\epsilon \tau B (u^{(k+1)}-u^{(k)})+\epsilon Au^{(k)}+\Frac{1}{\epsilon} f(u^{(k)}).
+\end{eqnarray*}
+
+\end{document}

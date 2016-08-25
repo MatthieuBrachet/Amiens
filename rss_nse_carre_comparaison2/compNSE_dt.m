@@ -9,20 +9,20 @@ cavite = 1;
 
 %% *** données ************************************************************
 
-N=31;
+N=63;
 tau=1; 
 Tmax=5;
-Re=100;
+Re=1000;
 
 
 %% *** calculs ************************************************************
-dt1=0.016;
+dt1=0.01;
 [ T1, ~, ~, Ei_pp1, ~, ~, Ei_ww1 ] = compNSE(N,dt1,Tmax,tau,Re);
 
-dt2=0.01;
+dt2=0.001;
 [ T2, ~, ~, Ei_pp2, ~, ~, Ei_ww2 ] = compNSE(N,dt2,Tmax,tau,Re);
 
-dt3=0.001;
+dt3=0.0005;
 [ T3, ~, ~, Ei_pp3, ~, ~, Ei_ww3 ] = compNSE(N,dt3,Tmax,tau,Re);
 
 %% graphes

@@ -1,0 +1,161 @@
+date : 19-Apr-2016
+ref. : 7364386780
+***********************************
+cavity            : 1
+RSS type          : lineaire
+---------- numerical data ---------
+coarse grid       : 127
+fine grid         : 255
+time step         : 0.001
+---------- stabilization ----------
+tau               : 100
+tau               : 2500
+tau               : 10000
+***********************************
+  
+  
+date : 19-Apr-2016
+ref. : 7364394655
+***********************************
+cavity            : 1
+RSS type          : nonlineaire
+---------- numerical data ---------
+coarse grid       : 31
+fine grid         : 63
+time step         : 0.001
+---------- stabilization ----------
+tau               : 100
+tau               : 2500
+tau               : 10000
+***********************************
+  
+  
+date : 19-Apr-2016
+ref. : 7364396837
+***********************************
+cavity            : 2
+RSS type          : nonlineaire
+---------- numerical data ---------
+coarse grid       : 31
+fine grid         : 63
+time step         : 0.001
+---------- stabilization ----------
+tau               : 100
+tau               : 2500
+tau               : 10000
+***********************************
+  
+  
+date : 20-Apr-2016
+ref. : 7364405240
+***********************************
+cavity            : 2
+RSS type          : nonlineaire
+extrapolation     : no
+---------- numerical data ---------
+coarse grid       : 63
+fine grid         : 127
+time step         : 0.1
+---------- stabilization ----------
+tau               : 10
+tau               : 250
+tau               : 1000
+***********************************
+  
+  
+date : 20-Apr-2016
+ref. : 7364405391
+***********************************
+cavity            : 2
+RSS type          : nonlineaire
+extrapolation     : yes
+---------- numerical data ---------
+coarse grid       : 63
+fine grid         : 127
+time step         : 0.1
+---------- stabilization ----------
+tau               : 10
+tau               : 250
+tau               : 1000
+***********************************
+  
+  
+date : 20-Apr-2016
+ref. : 7364405752
+***********************************
+cavity            : 2
+RSS type          : nonlineaire
+extrapolation     : yes
+---------- numerical data ---------
+coarse grid       : 63
+fine grid         : 127
+time step         : 0.01
+---------- stabilization ----------
+tau               : 10
+tau               : 250
+tau               : 1000
+***********************************
+  
+  
+date : 23-Apr-2016
+ref. : 7364425611
+***********************************
+cavity            : 2
+RSS type          : nonlineaire
+extrapolation     : yes
+---------- numerical data ---------
+coarse grid       : 63
+fine grid         : 127
+time step         : 0.005
+---------- stabilization ----------
+tau               : 10
+tau               : 250
+tau               : 1000
+***********************************
+  
+  
+date : 25-Apr-2016
+ref. : 7364453466
+***********************************
+cavity            : 2
+RSS type          : nonlineaire
+extrapolation     : yes
+---------- numerical data ---------
+coarse grid       : 127
+fine grid         : 255
+time step         : 0.2
+---------- stabilization ----------
+tau               : 20
+***********************************
+  
+  
+date : 25-Apr-2016
+ref. : 7364456069
+***********************************
+cavity            : 2
+RSS type          : nonlineaire
+extrapolation     : yes
+---------- numerical data ---------
+coarse grid       : 127
+fine grid         : 255
+time step         : 0.1
+---------- stabilization ----------
+tau               : 100
+***********************************
+  
+  
+date : 26-Apr-2016
+ref. : 7364460201
+***********************************
+cavity            : 2
+RSS type          : nonlineaire
+extrapolation     : yes
+---------- numerical data ---------
+coarse grid       : 31
+fine grid         : 63
+time step         : 0.05
+---------- stabilization ----------
+tau               : 100
+***********************************
+  
+  

@@ -25,14 +25,14 @@ cavite = 2;
 % si film = 1 : faire le film avec psi,
 %    film = 2 : faire le film avec omega,
 %    film = 0 : ne pas faire de film.
-film = 2;
+film = 1;
 
 %% physical data
-Re=3200;
+Re=5000;
 
 %% temps de la comparaison
-Tmax=50;
-dt=0.0005;
+Tmax=100;
+dt=0.0001;
 itemax=floor(Tmax./dt);
 t=0;
 
@@ -40,7 +40,7 @@ ref=floor(10000*now);
 
 %% *** déclaration des données ********************************************
 %% données en espace
-N=255;
+N=511;
 h=1/(N+1);
 x=[h:h:1-h]';
 y=x;
@@ -53,7 +53,7 @@ iter=0;
 
 if film==1 | 2
     % options de film
-    nbim=200;%(=5 when dt=0.01)
+    nbim=1000;%(=5 when dt=0.01)
     
     mkdir(['./video-' date ])
     mov=avifile(['./video-' date '/ref_' num2str(ref) '_NSE.avi'],'compression','None');

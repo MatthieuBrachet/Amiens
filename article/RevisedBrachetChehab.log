@@ -1,0 +1,850 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.3)  29 JUL 2016 18:41
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**RevisedBrachetChehab.tex
+(./RevisedBrachetChehab.tex
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/layout.sty
+Package: layout 2000/09/25 v1.2c Show layout parameters
+\oneinch=\count87
+\cnt@paperwidth=\count88
+\cnt@paperheight=\count89
+\cnt@hoffset=\count90
+\cnt@voffset=\count91
+\cnt@textheight=\count92
+\cnt@textwidth=\count93
+\cnt@topmargin=\count94
+\cnt@oddsidemargin=\count95
+\cnt@evensidemargin=\count96
+\cnt@headheight=\count97
+\cnt@headsep=\count98
+\cnt@marginparsep=\count99
+\cnt@marginparwidth=\count100
+\cnt@marginparpush=\count101
+\cnt@footskip=\count102
+\fheight=\count103
+\ref@top=\count104
+\ref@hoffset=\count105
+\ref@voffset=\count106
+\ref@head=\count107
+\ref@body=\count108
+\ref@foot=\count109
+\ref@margin=\count110
+\ref@marginwidth=\count111
+\ref@marginpar=\count112
+\Interval=\count113
+\ExtraYPos=\count114
+\PositionX=\count115
+\PositionY=\count116
+\ArrowLength=\count117
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count118
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+\epsfxsize=\dimen105
+\epsfysize=\dimen106
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count119
+\c@ALG@rem=\count120
+\c@ALG@nested=\count121
+\ALG@tlm=\skip43
+\ALG@thistlm=\skip44
+\c@ALG@Lnr=\count122
+\c@ALG@blocknr=\count123
+\c@ALG@storecount=\count124
+\c@ALG@tmpcounter=\count125
+\ALG@tmplength=\skip45
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count126
+\float@exts=\toks16
+\float@box=\box26
+\@float@everytoks=\toks17
+\@floatcapt=\box27
+)
+\@float@every@algorithm=\toks18
+\c@algorithm=\count127
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpascal.sty
+Package: algpascal 
+
+Document Style - pascal environments for the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algc.sty
+Package: algc 
+
+Document Style - c/c++ environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks19
+\ex@=\dimen107
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen108
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count128
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count129
+\leftroot@=\count130
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count131
+\DOTSCASE@=\count132
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen109
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count133
+\c@MaxMatrixCols=\count134
+\dotsspace@=\muskip10
+\c@parentequation=\count135
+\dspbrk@lvl=\count136
+\tag@help=\toks20
+\row@=\count137
+\column@=\count138
+\maxfields@=\count139
+\andhelp@=\toks21
+\eqnshift@=\dimen110
+\alignsep@=\dimen111
+\tagshift@=\dimen112
+\tagwidth@=\dimen113
+\totwidth@=\dimen114
+\lineht@=\dimen115
+\@envbody=\toks22
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+\c@theorem=\count140
+
+(./RevisedBrachetChehab.aux)
+\openout1 = `RevisedBrachetChehab.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count141
+\scratchdimen=\dimen116
+\scratchbox=\box30
+\nofMPsegments=\count142
+\nofMParguments=\count143
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count144
+\MPscratchDim=\dimen117
+\MPnumerator=\count145
+\makeMPintoPDFobject=\count146
+\everyMPtoPDFconversion=\toks25
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Try loading font information for U+msa on input line 71.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 71.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 71.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+
+LaTeX Warning: No \author given.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--92
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--109
+
+ []
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 169--175
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 180--184
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 232--235
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--241
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--255
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 266--268
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--310
+
+ []
+
+[5]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 319.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 319.
+
+Overfull \hbox (48.17001pt too wide) detected at line 336
+\OML/cmm/m/it/10.95 < Au[]; u[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 u[]
+ >\OT1/cmr/m/n/10.95 = [] [] \OML/cmm/m/it/10.95 ;
+ []
+
+
+Overfull \hbox (15.37892pt too wide) detected at line 353
+[] \OMS/cmsy/m/n/10.95 k \OML/cmm/m/it/10.95 u[] \OMS/cmsy/m/n/10.95 ^^@ \OML/c
+mm/m/it/10.95 u[] \OMS/cmsy/m/n/10.95 k[] \OT1/cmr/m/n/10.95 +\OML/cmm/m/it/10.
+95 ^^\ < B\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u[] \OMS/cmsy/m/n/10.95 ^^@ \
+OML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; u[] \OMS/cmsy/m
+/n/10.95 ^^@ \OML/cmm/m/it/10.95 u[] > \OMS/cmsy/m/n/10.95 ^^@[] \OML/cmm/m/it/
+10.95 < A\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 u[] \OMS/cmsy/m/n/10.95 ^^@ \O
+ML/cmm/m/it/10.95 u[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; u[] \OMS/cmsy/m/
+n/10.95 ^^@ \OML/cmm/m/it/10.95 u[] >> \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 
+:
+ []
+
+[6] <tau_effet.png, id=36, 578.6418pt x 434.1018pt>
+File: tau_effet.png Graphic file (type png)
+ <use tau_effet.png>
+Package pdftex.def Info: tau_effet.png used on input line 394.
+(pdftex.def)             Requested size: 199.16928pt x 149.42084pt.
+
+<ilu_ssor_chaleur2.png, id=37, 578.6418pt x 434.1018pt>
+File: ilu_ssor_chaleur2.png Graphic file (type png)
+
+<use ilu_ssor_chaleur2.png>
+Package pdftex.def Info: ilu_ssor_chaleur2.png used on input line 395.
+(pdftex.def)             Requested size: 199.16928pt x 149.42084pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 384--401
+
+ []
+
+[7 <./tau_effet.png (PNG copy)> <./ilu_ssor_chaleur2.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 419--429
+
+ []
+
+[8]
+Overfull \hbox (43.76848pt too wide) detected at line 488
+\OMS/cmsy/m/n/10.95 k \OML/cmm/m/it/10.95 w[] \OMS/cmsy/m/n/10.95 k^^Tk \OML/cm
+m/m/it/10.95 M \OMS/cmsy/m/n/10.95 k[]k \OML/cmm/m/it/10.95 w[] \OMS/cmsy/m/n/1
+0.95 k \OT1/cmr/m/n/10.95 +^^A\OML/cmm/m/it/10.95 t[] \OMS/cmsy/m/n/10.95 k \OT
+1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Id \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.9
+5 ^^\\OT1/cmr/m/n/10.95 ^^A\OML/cmm/m/it/10.95 tB\OT1/cmr/m/n/10.95 )[] \OMS/cm
+sy/m/n/10.95 kk \OML/cmm/m/it/10.95 ^^\B \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/
+10.95 A \OMS/cmsy/m/n/10.95 kk \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Id \OT1/
+cmr/m/n/10.95 + ^^A\OML/cmm/m/it/10.95 tA\OT1/cmr/m/n/10.95 )[] \OMS/cmsy/m/n/1
+0.95 k [] k \OML/cmm/m/it/10.95 r[] \OMS/cmsy/m/n/10.95 k \OML/cmm/m/it/10.95 :
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--504
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 510--521
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 510--521
+
+ []
+
+[9] [10]
+Overfull \hbox (44.685pt too wide) detected at line 625
+[]
+ []
+
+[11]
+Overfull \hbox (26.19974pt too wide) detected at line 631
+[] \OMS/cmsy/m/n/10.95 ^^@ [][] \OML/cmm/m/it/10.95 > \OT1/cmr/m/n/10.95 0\OML/
+cmm/m/it/10.95 :
+ []
+
+
+Overfull \hbox (36.82283pt too wide) detected at line 647
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 651--656
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 657--658
+
+ []
+
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 724--725
+
+ []
+
+
+LaTeX Warning: Citation `Elliott' on page 14 undefined on input line 726.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 739--743
+
+ []
+
+[14]
+Overfull \hbox (54.25323pt too wide) detected at line 775
+\OML/cmm/m/it/10.95 < Au[]; u[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 u[]
+ >\OT1/cmr/m/n/10.95 = [] [] \OML/cmm/m/it/10.95 ;
+ []
+
+
+Overfull \hbox (57.5578pt too wide) detected at line 792
+[] [] \OMS/cmsy/m/n/10.95 ^^U \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 ;
+ []
+
+[15]
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ® in font cmr10!
+ [16]
+Overfull \hbox (55.10161pt too wide) detected at line 891
+[]
+ []
+
+
+Overfull \hbox (53.83655pt too wide) detected at line 901
+[]
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 953--954
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 1003--1008
+
+ []
+
+[19] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
+
+ []
+
+[21] [22] [23]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1223.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1229--1235
+
+ []
+
+
+Overfull \hbox (3.12082pt too wide) in paragraph at lines 1229--1235
+[]$\OT1/cmr/m/n/10.95 : To have $^^H(\OML/cmm/m/it/10.95 ^^X\OT1/cmr/m/n/10.95 
+) \OMS/cmsy/m/n/10.95 ^^T \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 ; \OMS/cmsy/m
+/n/10.95 8\OML/cmm/m/it/10.95 ^^X \OMS/cmsy/m/n/10.95 2 \OT1/cmr/m/n/10.95 [\OM
+L/cmm/m/it/10.95 ^^U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 B\OT1/cmr/m/n/10.
+95 )\OML/cmm/m/it/10.95 ; ^^U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 B\OT1/cm
+r/m/n/10.95 )]$, we must have $^^H(\OML/cmm/m/it/10.95 ^^U[]\OT1/cmr/m/n/10.95 
+(\OML/cmm/m/it/10.95 B\OT1/cmr/m/n/10.95 )) \OMS/cmsy/m/n/10.95 ^^T
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1237--1243
+
+ []
+
+[24] <cavity.png, id=97, 923.45pt x 819.06pt>
+File: cavity.png Graphic file (type png)
+ <use cavity.png>
+Package pdftex.def Info: cavity.png used on input line 1296.
+(pdftex.def)             Requested size: 289.07059pt x 289.08737pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[25] [26 <./cavity.png>] [27]
+<NS_Re100_omega_N127.png, id=110, 578.6418pt x 434.1018pt>
+File: NS_Re100_omega_N127.png Graphic file (type png)
+
+<use NS_Re100_omega_N127.png>
+Package pdftex.def Info: NS_Re100_omega_N127.png used on input line 1428.
+(pdftex.def)             Requested size: 156.49142pt x 156.4885pt.
+
+<NS_Re100_psi_N127.png, id=111, 578.6418pt x 434.1018pt>
+File: NS_Re100_psi_N127.png Graphic file (type png)
+
+<use NS_Re100_psi_N127.png>
+Package pdftex.def Info: NS_Re100_psi_N127.png used on input line 1429.
+(pdftex.def)             Requested size: 156.49142pt x 156.4885pt.
+
+<NS_Re400_omega_N127.png, id=112, 578.6418pt x 434.1018pt>
+File: NS_Re400_omega_N127.png Graphic file (type png)
+
+<use NS_Re400_omega_N127.png>
+Package pdftex.def Info: NS_Re400_omega_N127.png used on input line 1437.
+(pdftex.def)             Requested size: 156.49142pt x 156.4885pt.
+
+<NS_Re400_psi_N127.png, id=113, 578.6418pt x 434.1018pt>
+File: NS_Re400_psi_N127.png Graphic file (type png)
+
+<use NS_Re400_psi_N127.png>
+Package pdftex.def Info: NS_Re400_psi_N127.png used on input line 1438.
+(pdftex.def)             Requested size: 156.49142pt x 156.4885pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<NS_Re1000_omega_N127.png, id=114, 578.6418pt x 434.1018pt>
+File: NS_Re1000_omega_N127.png Graphic file (type png)
+
+<use NS_Re1000_omega_N127.png>
+Package pdftex.def Info: NS_Re1000_omega_N127.png used on input line 1446.
+(pdftex.def)             Requested size: 156.49142pt x 156.4885pt.
+
+<NS_Re1000_psi_N127.png, id=115, 578.6418pt x 434.1018pt>
+File: NS_Re1000_psi_N127.png Graphic file (type png)
+
+<use NS_Re1000_psi_N127.png>
+Package pdftex.def Info: NS_Re1000_psi_N127.png used on input line 1447.
+(pdftex.def)             Requested size: 156.49142pt x 156.4885pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<NS_Re3200_omega_N127.png, id=116, 578.6418pt x 434.1018pt>
+File: NS_Re3200_omega_N127.png Graphic file (type png)
+
+<use NS_Re3200_omega_N127.png>
+Package pdftex.def Info: NS_Re3200_omega_N127.png used on input line 1455.
+(pdftex.def)             Requested size: 156.49142pt x 156.4885pt.
+
+<NS_Re3200_psi_N127.png, id=117, 578.6418pt x 434.1018pt>
+File: NS_Re3200_psi_N127.png Graphic file (type png)
+
+<use NS_Re3200_psi_N127.png>
+Package pdftex.def Info: NS_Re3200_psi_N127.png used on input line 1456.
+(pdftex.def)             Requested size: 156.49142pt x 156.4885pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (29.38829pt too wide) in paragraph at lines 1472--1488
+ [][] 
+ []
+
+
+Overfull \hbox (29.38829pt too wide) in paragraph at lines 1495--1511
+ [][] 
+ []
+
+
+Overfull \hbox (29.38829pt too wide) in paragraph at lines 1516--1532
+ [][] 
+ []
+
+
+Overfull \hbox (29.38829pt too wide) in paragraph at lines 1537--1553
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[28 <./NS_Re100_omega_N127.png (PNG copy)> <./NS_Re100_psi_N127.png (PNG copy)>
+] <NS_dudt_Re100_tau1_N63.png, id=121, 578.6418pt x 434.1018pt>
+File: NS_dudt_Re100_tau1_N63.png Graphic file (type png)
+
+<use NS_dudt_Re100_tau1_N63.png>
+Package pdftex.def Info: NS_dudt_Re100_tau1_N63.png used on input line 1565.
+(pdftex.def)             Requested size: 284.52756pt x 213.46024pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<NS_dudt_Re100_tau100_N63.png, id=122, 578.6418pt x 434.1018pt>
+File: NS_dudt_Re100_tau100_N63.png Graphic file (type png)
+
+<use NS_dudt_Re100_tau100_N63.png>
+Package pdftex.def Info: NS_dudt_Re100_tau100_N63.png used on input line 1573.
+(pdftex.def)             Requested size: 284.52756pt x 213.46024pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<NSrect_Re100_omega_N255.png, id=123, 578.16pt x 434.1018pt>
+File: NSrect_Re100_omega_N255.png Graphic file (type png)
+
+<use NSrect_Re100_omega_N255.png>
+Package pdftex.def Info: NSrect_Re100_omega_N255.png used on input line 1585.
+(pdftex.def)             Requested size: 128.03368pt x 227.62204pt.
+
+<NSrect_Re100_psi_N255.png, id=124, 578.16pt x 434.1018pt>
+File: NSrect_Re100_psi_N255.png Graphic file (type png)
+
+<use NSrect_Re100_psi_N255.png>
+Package pdftex.def Info: NSrect_Re100_psi_N255.png used on input line 1586.
+(pdftex.def)             Requested size: 128.03368pt x 227.62204pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<NSrect_Re400_omega_N255.png, id=125, 578.16pt x 434.1018pt>
+File: NSrect_Re400_omega_N255.png Graphic file (type png)
+
+<use NSrect_Re400_omega_N255.png>
+Package pdftex.def Info: NSrect_Re400_omega_N255.png used on input line 1594.
+(pdftex.def)             Requested size: 128.03368pt x 227.62204pt.
+
+<NSrect_Re400_psi_N255.png, id=126, 578.16pt x 434.1018pt>
+File: NSrect_Re400_psi_N255.png Graphic file (type png)
+
+<use NSrect_Re400_psi_N255.png>
+Package pdftex.def Info: NSrect_Re400_psi_N255.png used on input line 1595.
+(pdftex.def)             Requested size: 128.03368pt x 227.62204pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<NSrect_Re1000_omega_N255.png, id=127, 578.16pt x 434.1018pt>
+File: NSrect_Re1000_omega_N255.png Graphic file (type png)
+
+<use NSrect_Re1000_omega_N255.png>
+Package pdftex.def Info: NSrect_Re1000_omega_N255.png used on input line 1603.
+(pdftex.def)             Requested size: 128.03368pt x 227.62204pt.
+
+<NSrect_Re1000_psi_N255.png, id=128, 578.16pt x 434.1018pt>
+File: NSrect_Re1000_psi_N255.png Graphic file (type png)
+
+<use NSrect_Re1000_psi_N255.png>
+Package pdftex.def Info: NSrect_Re1000_psi_N255.png used on input line 1604.
+(pdftex.def)             Requested size: 128.03368pt x 227.62204pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[29 <./NS_Re400_omega_N127.png (PNG copy)> <./NS_Re400_psi_N127.png (PNG copy)>
+ <./NS_Re1000_omega_N127.png (PNG copy)> <./NS_Re1000_psi_N127.png (PNG copy)>]
+[30 <./NS_Re3200_omega_N127.png (PNG copy)> <./NS_Re3200_psi_N127.png (PNG copy
+)> <./NS_dudt_Re100_tau1_N63.png (PNG copy)>] [31] [32 <./NS_dudt_Re100_tau100_
+N63.png (PNG copy)> <./NSrect_Re100_omega_N255.png (PNG copy)> <./NSrect_Re100_
+psi_N255.png (PNG copy)>] [33 <./NSrect_Re400_omega_N255.png (PNG copy)> <./NSr
+ect_Re400_psi_N255.png (PNG copy)> <./NSrect_Re1000_omega_N255.png (PNG copy)> 
+<./NSrect_Re1000_psi_N255.png (PNG copy)>] [34]
+<NSrect2_Re3200_omega_N255.png, id=148, 578.16pt x 434.1018pt>
+File: NSrect2_Re3200_omega_N255.png Graphic file (type png)
+
+<use NSrect2_Re3200_omega_N255.png>
+Package pdftex.def Info: NSrect2_Re3200_omega_N255.png used on input line 1717.
+
+(pdftex.def)             Requested size: 128.03368pt x 227.62204pt.
+
+<NSrect2_Re3200_psi_N255.png, id=149, 578.16pt x 434.1018pt>
+File: NSrect2_Re3200_psi_N255.png Graphic file (type png)
+
+<use NSrect2_Re3200_psi_N255.png>
+Package pdftex.def Info: NSrect2_Re3200_psi_N255.png used on input line 1718.
+(pdftex.def)             Requested size: 128.03368pt x 227.62204pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1727--1729
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[35
+
+ <./NSrect2_Re3200_omega_N255.png (PNG copy)> <./NSrect2_Re3200_psi_N255.png (P
+NG copy)>]
+Overfull \hbox (29.10435pt too wide) in alignment at lines 1809--1812
+ [][][] []
+ []
+
+
+Overfull \hbox (3.65874pt too wide) in paragraph at lines 1825--1845
+ [] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[36]
+Underfull \hbox (badness 10000) in paragraph at lines 1872--1883
+
+ []
+
+[37]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+ [38]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmti10!
+Missing character: There is no € in font cmti10!
+Missing character: There is no “ in font cmti10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 1941--1943
+
+ []
+
+[39] (./RevisedBrachetChehab.aux)
+
+LaTeX Warning: There were undefined references.
+
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 77 ({)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 3621 strings out of 493304
+ 50016 string characters out of 6139871
+ 136073 words of memory out of 5000000
+ 6982 multiletter control sequences out of 15000+600000
+ 13198 words of font info for 52 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,15n,26p,1205b,424s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on RevisedBrachetChehab.pdf (39 pages, 1004790 bytes).
+PDF statistics:
+ 227 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -11,7 +11,7 @@ global cavite Re
 cavite = 2;
 
 %% données en espace 1
-N1=127;
+N1=63;
 h1=1/(N1+1);
 x1=h1:h1:1-h1;
 y1=x1;

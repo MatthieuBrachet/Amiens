@@ -1,0 +1,531 @@
+ \documentclass[11pt]{article}
+%\documentstyle[11pt]{article}
+\usepackage{layout}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{color}
+%\usepackage{showkeys}
+\usepackage{latexsym}
+
+\setlength{\textwidth}{16.0cm} 
+\setlength{\textheight}{21.0cm} 
+\setlength{\evensidemargin}{ 0.5cm}
+\setlength{\oddsidemargin} { 0.5cm} 
+\setlength{\topmargin}{-0.5cm} \setlength{\baselineskip}  { 0.7cm}
+
+
+\usepackage{amssymb}
+\usepackage{algorithmicx}
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algpascal}
+\usepackage{algc}
+
+\alglanguage{pseudocode}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[counterclockwise]{rotating}
+\usepackage{collectbox}
+
+\makeatletter
+\newcommand{\sqbox}{%
+    \collectbox{%
+        \@tempdima=\dimexpr\width-\totalheight\relax
+        \ifdim\@tempdima<\z@
+            \fbox{\hbox{\hspace{-.5\@tempdima}\BOXCONTENT\hspace{-.5\@tempdima}}}%
+        \else
+            \ht\collectedbox=\dimexpr\ht\collectedbox+.5\@tempdima\relax
+            \dp\collectedbox=\dimexpr\dp\collectedbox+.5\@tempdima\relax
+            \fbox{\BOXCONTENT}%
+        \fi
+    }%
+}
+\makeatother
+
+
+
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newcommand{\R}{I\!\!R}
+\def\C{{\rm I\!C}}
+\def\N{{\rm I\!N}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+%\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newcommand{\Frac}[2] {\frac{\textstyle #1} {\textstyle #2}}
+\newcommand{\taumin}{\tau_{min}}
+\newcommand{\taumax}{\tau_{max}}
+\newcommand{\sigmin}{\sigma_{min}}
+\newcommand{\sigmax}{\sigma_{max}}
+ \newcommand{\halmos}{\hfill $\;\;\;\Box$\\}
+
+\begin{document}
+
+\title{Stabilized Schemes for Phase Fields Models}
+\author{M. Brachet\thanks{Institut Elie Cartan de Lorraine, Universit\'e de Lorraine, Site de Metz, B\^at. A Ile du Saucy, F-57045 Metz Cedex 1, {\tt matthieu.brachet@math.univ-metz.fr}} \and J.-P. Chehab\thanks{
+Laboratoire Amienois de Math\'ematiques Fondamentales et Appliqu\'ees (LAMFA), {\small UMR} 7352,
+ Universit\'e de Picardie Jules Verne, 33 rue Saint Leu, 80039 Amiens France
+ , ({\tt
+ Jean-Paul.Chehab@u-picardie.fr}).} }
+
+
+%\date{}
+
+
+\maketitle
+
+%
+%
+
+
+
+\begin{abstract}
+\end{abstract}
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%RSS SCHEMES, PRINCIPLE PROPERTIES AND NEW EXTENTIONS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The RSS-schemes for parabolic problems}
+The forward Euler's scheme is known to be stable only for small time steps; this rectriction can be hard when considering heat-equation, the basic linear part of reaction-diffusion equations on which we focus here. This is due to the necessity of not allowing the expansion of high mode components which leads to the divergence of the scheme.
+A way to overcome the lake of stability consist in a approximation of the Backward Euler's scheme as follows. Consider the time and space discretization of the heat equation
+\begin{eqnarray}\label{BE_HEAT}
+\Frac{u^{(k+1)}-u^{(k)}}{\Delta t}+Au^{(k+1)}=0,
+\end{eqnarray}
+wher $A$ is the stifness matrix, $\Delta t>0$, the time step; here $u^{(k)}$ is the approximation of the solution at time $t=k\Delta t$ in the spatial approximation space. To simplify the linear system that must be solved at each step,  we replace $Au^{(k+1)}$ by
+$\tau B (u^{(k+1)}-u^{(k)}) +Au^{(k)}$, where $\tau\ge 0$ and where $B$ is a preconditioner of $A$. This leads to the so-called RSS scheme
+\begin{eqnarray}\label{RSS_HEAT}
+\Frac{u^{(k+1)}-u^{(k)}}{\Delta t}+\tau B (u^{(k+1)}-u^{(k)}) +Au^{(k)}=0.
+\end{eqnarray}
+Chosing a "good" and appropriate preconditioner for enhancing the stability of the scheme
+(\ref{RSS_HEAT}) as respect to the forward Euler scheme is not {\it a priori} an easy task. Rewriting (\ref{RSS_HEAT}) as
+\begin{eqnarray}\label{RSS_HEAT2}
+\Frac{u^{(k+1)}-u^{(k)}}{\Delta t}+\tau B u^{(k+1)} +(A-\tau B)u^{(k)}=0.
+\end{eqnarray}
+
+\subsection{RSS-Schemes and stabilization}
+Let $A$ and $B$ be two $n\times n$ symmetric positive definite matrices. We assume that there exist two strictly positive constant $\alpha$ and $beta$ such that
+\begin{eqnarray}
+\label{Hyp_H}
+\alpha <Bu,u> \le <A u, u> \le \beta <Bu,u>, \ \forall u \in \R^n
+\end{eqnarray}
+We first recall the following basic  result \cite{BrachetChehabJSC}
+\begin{proposition}
+Assume that $A$ and $B$ are two SPD matrices.
+Under hypothesis (\ref{Hyp_H}), we have the following stability conditions:
+\begin{itemize}
+\item If $\tau\ge \Frac{\beta}{2}$, the schemes (\ref{RSS_ADI1}) and (\ref{RSS_ADI2}) are unconditionally stable (i.e. stable $\forall \ \Delta t >0$)
+\item If $\tau < \Frac{\beta}{2}$, then the scheme is stable for
+$
+0<\Delta t < \Frac{2}{\left(1-\Frac{2\tau}{\beta}\right)\rho(A)}.
+$
+\end{itemize} 
+\label{RSS_Stab_lin}
+\end{proposition}
+Of course we can consider second order schemes such as Gear's and apply the RSS stabilization. We can prove similar stability results:
+\begin{proposition}
+Consider the RSS-scheme derived from Gear's method 
+\begin{eqnarray*}\label{RSS_GEAR}
+\Frac{1}{2\Delta t}(3u^{(k+1)}-4u^{(k)}+u^{(k-1)})
++\tau B(u^{(k+1)}-u^{(k)})+Au^k=0
+\end{eqnarray*}
+We have the following stability conditions
+\begin{itemize}
+\item If $\tau\ge \Frac{\beta}{2}$, then (\ref{RSS_GEAR}) is unconditionally stable
+\item If $\tau < \Frac{\beta}{2}$, then (\ref{RSS_GEAR}) is table when
+$$
+0<\Delta t < \Frac{2}{\rho(A)(1-\Frac{2\tau}{\beta})}
+$$
+\end{itemize}
+\end{proposition}
+\begin{proof}
+We start from the identity
+$$
+\begin{array}{ll}
+<3u^{(k+1)}-4u^{(k)}+u^{(k-1)},u^{(k+1)}-u^{(k)}>
+&=2\|u^{(k+1)}-u^{(k)}\|^2 +\Frac{1}{2}(\|u^{(k+1)}-u^{(k)}\|^2\\
+&-\|u^{(k)}-u^{(k-1)}\|^2
++\|u^{(k+1)}-2u^{(k)}+u^{(k-1)}\|^2)
+\end{array}
+$$
+We now take the scalar product of each term of (\ref{RSS_GEAR}) with $u^{(k+1)}-u^{(k)}$ and obtain
+$$
+\begin{array}{l}
+2\|u^{(k+1)}-u^{(k)}\|^2 +\Frac{1}{2}(\|u^{(k+1)}-u^{(k)}\|^2-\|u^{(k)}-u^{(k-1)}\|^2
++\|u^{(k+1)}-2u^{(k)}+u^{(k-1)}\|^2)\\
++2 \Delta t \left(\tau <B(u^{(k+1)}-u^{(k)}),u^{(k+1)}-u^{(k)}> +<Au^{(k)},u^{(k+1)}-u^{(k)}>\right)=0
+\end{array}
+$$
+Using the parallelogram identity on the last term, we find
+$$
+\begin{array}{l}
+2\|u^{(k+1)}-u^{(k)}\|^2 +\Frac{1}{2}(\|u^{(k+1)}-u^{(k)}\|^2-\|u^{(k)}-u^{(k-1)}\|^2
++\|u^{(k+1)}-2u^{(k)}+u^{(k-1)}\|^2)\\
++2 \Delta t \left( \tau <B(u^{(k+1)}-u^{(k)}),u^{(k+1)}-u^{(k)}>\\ 
++\Frac{1}{2}(<Au^{(k+1)},u^{(k+1)}>-<Au^{(k)},u^{(k)}>-<A(u^{(k+1)}-u^{(k)}),u^{(k+1)}-u^{(k)}>)
+\right)=0
+\end{array}
+\right.
+$$
+Now, we let $E^{k+1}=\Frac{1}{2}<Au^{(k+1)},u^{(k+1)}>+
+\Frac{1}{2}\|u^{(k+1)}-u^{(k)}\|^2$ and we obtain,
+$$
+\begin{array}{l}
+2\|u^{(k+1)}-u^{(k)}\|^2+\Frac{1}{2}\|u^{(k+1)}-2u^{(k)}+u^{(k-1)}\|^2
++2\Delta t(E^{k+1}-E^{k})\\
++2\Delta t (\tau <B(u^{(k+1)}-u^{(k)}),u^{(k+1)}-u^{(k)}>-\Frac{1}{2}<A(u^{(k+1)}-u^{(k)}),u^{(k+1)}-u^{(k)}>)
+\end{array}
+$$
+The stability is obtained when $E^{k+1}<E^k$, hence the conditions.
+\end{proof}
+\subsection{A ADI-RSS Scheme}
+
+Consider the linear differential system
+$$
+\Frac{dU}{dt}+AU=0
+$$
+with $A=A_1+A_2$. Let $B_1$ and $B_2$ be preconditioners of $A_1$ and $A_2$ respectively and $\tau_1, \ \tau_2$ two positive real numbers. All the matrices are supposed to be symmetric definite positive.
+We introduce the ADI-RSS schemes
+
+\begin{eqnarray}
+\Frac{u^{(k+1/2)}-u^{(k)}}{\Delta t} +\tau_1 B_1 (u^{(k+1/2)}-u^{(k)}) = -A_1 u^{(k)},\\
+\Frac{u^{(k+1)}-u^{(k+1/2)}}{\Delta t} +\tau_2 B_2 (u^{(k+1)}-u^{(k+1/2)}) = -A_2 u^{(k+1/2)},
+\label{RSS_ADI1}
+\end{eqnarray}
+and the Strang's Splitting
+\begin{eqnarray}
+\Frac{u^{(k+1/3)}-u^{(k)}}{\Delta t/2} +\tau_1 B_1 (u^{(k+1/3)}-u^{(k)}) = -A_1 u^{(k)},\\
+\Frac{u^{(k+2/3)}-u^{(k+1/3)}}{\Delta t} +\tau_2 B_2 (u^{(k+2/3)}-u^{(k+1/3)}) = -A_2 u^{(k+1/3)},\\
+\Frac{u^{(k+1)}-u^{(k+2/3)}}{\Delta t/2} +\tau_1 B_1 (u^{(k+1)}-u^{(k+2/3)}) = -A_1 u^{(k+2/3)},
+\label{RSS_ADI2}
+\end{eqnarray}
+Of course these approach can be applied in more general situations, eg
+considering $A=\displaystyle{\sum_{i=1}^m A_i}$ and $B =\displaystyle{\sum_{i=1}^m B_i}$ and the splitting
+\begin{eqnarray}
+\Frac{u^{(k+i/m)}-u^{(k+(i-1)/m)}}{\Delta t} +\tau_i B_i(u^{(k+i/m)}-u^{(k+(i-1)/m)}) = -A_i u^{(k+(i-1)/m)},
+\label{RSS_ADIm}
+\end{eqnarray}
+We recall that
+
+
+As a direct consequence of proposition \ref{RSS_Stab_lin}, we can prove the following result
+\begin{proposition}
+Under hypothesis (\ref{Hyp_H}), we have the followig stability conditions:
+\begin{itemize}
+\item If $\tau_i\ge \Frac{\beta_i}{2}$,$i=1,2$ the scheme (\ref{RSS_ADI1})is unconditionally stable (i.e. stable $\forall \ \Delta t >0$)
+\item If $\tau_i < \Frac{\beta_i}{2}$, $i=1,2$, then the scheme is stable for
+$
+0<\Delta t < Min(\Frac{2}{\left(1-\Frac{2\tau_1}{\beta_1}\right)\rho(A_1)},\Frac{2}{\left(1-\Frac{2\tau_2}{\beta_2}\right)\rho(A_2)}).
+$
+\end{itemize} 
+\label{RSS_Stab_ADI}
+\end{proposition}
+\begin{proof}
+It suffices to apply proposition \ref{RSS_Stab_lin} to each system.
+\end{proof}
+\subsection{Numerical results}
+USE THE MATLAB CODES IN THE DIRECTORY ADI\underline{\ }MATLAB.
+\subsubsection{2D Heat Equation}
+see program {\tt chaleur\underline{\ }2D\underline{\ }splitting.m}\\
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=7.5cm, height=7cm]{Heat_2D_strang_splitting1.png}
+\includegraphics[width=7.5cm, height=7cm]{Heat_2D_strang_splitting2.png}\\
+\caption{Solution of  the heat equation with $\Delta t = 0.01$, (left) and $\Delta t = 0.001$ (right) $n=31$, $\tau=1$}
+\label{Strang_splitting_Heat_2D}
+\end{center}
+\end{figure}
+The error is clearly in $\Delta t$.
+\subsubsection{3D Heat Equation}
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=7.5cm, height=7cm]{Heat_3D_strang_splitting1.png}
+\includegraphics[width=7.5cm, height=7cm]{Heat_3D_strang_splitting2.png}\\
+\caption{Solution of  the 3D heat equation with $\Delta t = 0.01$, (left) and $\Delta t = 0.001$ (right) $n=31$, $\tau=1$}
+\label{Strang_splitting_Heat_2D}
+\end{center}
+\end{figure}
+The error is clearly in $\Delta t$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%ALLEN-CAHN
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Allen-Cahn's equation}
+A first inconditionnally stable scheme is (\cite{Elliott,ElliottStuart})
+\begin{eqnarray}
+ \Frac{u^{(k+1)}-u^{(k)}}{\Delta t} +Au^{(k+1)}+\Frac{1}{\epsilon^2}DF(u^{(k)},u^{(k+1)})=0,
+ \label{ISAC1}
+ \end{eqnarray}
+where
+$$
+DF(u,v)=\left\{
+\begin{array}{ll}
+\Frac{F(u)-F(v)}{u-v} & \mbox{ if } u\neq v ,\\
+f(u) & \mbox{ if } u= v.\\
+\end{array}
+\right.
+$$ 
+In \cite{BrachetChehabJSC} it was introduced the RSS-scheme
+\begin{eqnarray}\label{RSSNLG}
+\Frac{u^{(k+1)}-u^{(k)}}{\Delta t} +\tau B(u^{(k+1)}-u^{(k)})+DF(u^{(k+1)},u^{(k)})=
+-Au^{(k)}
+\end{eqnarray}
+which enjoys of the following stability condition, see \cite{BrachetChehabJSC} for the proof.
+\begin{proposition}
+Under hypothsesis ${\cal H}$
+\begin{itemize}
+\item if $\tau \ge \Frac{\beta}{2}$, the RSS scheme is unconditionally stable,
+\item if $\tau < \Frac{\beta}{2}$, the RSS scheme is stable under condition
+$$
+0<\Delta t < \Frac{\beta}{\rho(A)(\frac{\beta}{2}-\tau)}.
+$$
+\end{itemize}
+\end{proposition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%CAHN-HILLIARD
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Cahn-Hilliard's equation}
+\subsection{The models}
+\subsubsection{Cahn Hilliard and Patterns}
+The CH equation describes the process of phase separation, by which the two components of a binary fluid spontaneously separate and form domains pure in each component. It writes as
+\begin{eqnarray}
+\Frac{\partial u}{\partial t} -\Delta( -\Delta u +\Frac{1}{\epsilon^2}f(u))=0,\\
+\Frac{\partial u}{\partial n}=0,\\
+\Frac{\partial }{\partial n}\left(\Delta u-\Frac{1}{\epsilon^2}f(u)\right)=0,\\
+u(0,x)=u_0(x)
+\end{eqnarray}
+We have the properties
+\begin{itemize}
+\item Conservation of the mass: ${\bar u}=\displaytstyle{\int_{\Omega}u(x,t)dx}=\displaytstyle{\int_{\Omega}u_0(x)dx}$
+\item Decay of the energy in time
+$$
+\Frac{\partial E(u)}{\partial t}=
+-\displaystyle{\int_{\Omega}|\nabla( -\Delta u +\Frac{1}{\epsilon^2}f(u))|^2dx}\le 0
+$$
+\end{itemize}
+A nice way to study and to simulate CH is to decouple the equation as follows:
+\begin{eqnarray}
+\Frac{\partial u}{\partial t} -\Delta\mu=0,\\
+\mu= -\Delta u +\Frac{1}{\epsilon^2}f(u),\\
+\Frac{\partial u}{\partial n}=0,\\
+\Frac{\partial \mu}{\partial n}=0,\\
+u(0,x)=u_0(x)
+\end{eqnarray}
+\subsubsection{The inpainting problem}
+Cahn hilliard equations allow here to in paint a tagged picture.
+Let $g$ be the original image and $D\subset \Omega$  the region of $\Omega$ in which the image is deterred. The idea is to add a penalty term that forces the image to remain unchanged in $\Omega\setminus D$ and to reconnect the fields of $g$ inside $D$. Let $\lambda >>1$
+\begin{eqnarray}
+\Frac{\partial u}{\partial t} -\Delta( -\epsilon \Delta u +\Frac{1}{\epsilon}f(u))&+\lambda\chi_{\Omega\setminus D}(x)(u-g)=0,\\
+\underbrace{\mbox{Cahn-Hilliard equation} }&\underbrace{\mbox{Fidelity term} }\\
+\Frac{\partial u}{\partial n}=0&\Frac{\partial }{\partial n}\left(\Delta u-\Frac{1}{\epsilon^2}f(u)\right)=0,\\
+u(0,x)=u_0(x)&
+\end{eqnarray}
+Here $\chi_{\Omega\setminus D}(x)=\left\{\begin{array}{ll}1 &\mbox{ if } x\in \Omega\setminus D,\\ 0 &\mbox{ else}\end{array}$
+\begin{itemize}
+\item The presence of the penalization  term $\lambda\chi_{\Omega\setminus D}(x)(u-g)$ forces the solution to be close to $g$ in $\Omega\setminus D$ when $\lambda>>1$
+\item The Cahn-Hilliard flow has as effect to connect the fields inside $D$
+\item here $\epsilon$ will play the role of the "contrast". A post-processing is possible using a thresholding procedure.
+\end{itemize}
+\subsection{The RSS-Scheme}
+The semi-implicit scheme
+\begin{eqnarray}\label{CHC1}
+\Frac{u^{(k+1)}-u^{(k)}}{\Delta t} +A\mu^{(k+1)}=0,\\
+\label{CHC2}
+\mu^{(k+1)}=\epsilon Au^{(k+1)}+\Frac{1}{\epsilon}f(u^{(k)}),
+\end{eqnarray}
+suffers from a hard time step restriction, its energy stability is guaranteed for
+$$
+0<\Delta<\epsilon^2
+$$
+see \cite{JShenACCH}
+We derive the RSS-Scheme from the backward Euler's (\ref{CHC1})-(\ref{CHC2})  by
+replacing $Az^{(k+1)}$ by $\tau B(z^{(k+1)}-z^{(k)})+Az^{(k)}$ for $z=u$ or $z=\mu$. We obtain
+\begin{eqnarray}
+\label{RSS_CH1}
+\Frac{u^{(k+1)}-u^{(k)}}{\Delta t}+\tau B(\mu^{(k+1)}-\mu^{(k)}) +A\mu^{(k)}=0,\\
+\label{RSS_CH2}
+\mu^{(k+1)}=\epsilon \tau B (u^{(k+1)}-u^{(k)})+\epsilon Au^{(k)}+\Frac{1}{\epsilon} f(u^{(k)}).
+\end{eqnarray}
+We remark that this scheme preserves the steady state. We now address a stability analysis.
+We first consider the linear case $(f \equiv 0)$.
+\begin{theorem}
+Assume that $f \equiv 0$.
+If $\tau > \beta $, then the scheme (\ref{RSS_CH1})-(\ref{RSS_CH2}) 
+is unconditionally stable.
+\end{theorem}
+\begin{proof}
+We take the scalar product of (\ref{RSS_CH1}) with $u^{(k+1)}-u^{(k)}$ and of
+(\ref{RSS_CH2}) with $\mu^{(k+1)}$. After the use of the parallelogram identity and usual simplifications, we obtain, on the one hand
+$$
+\begin{array}{l}
+<u^{(k+1)}-u^{(k)},\mu^{(k+1)}>+\Frac{\Delta t \tau}{2}\left(<B\mu^{(k+1)},\mu^{(k+1)}>
+-<B\mu^{(k)},\mu^{(k)}>\\
+<B(\mu^{(k+1)}-\mu^{(k)}),\mu^{(k+1)}-\mu^{(k)}>\right)\\
++\Frac{\Delta t}{2}\left(<A\mu^{(k+1)},\mu^{(k+1)}>
+-<A\mu^{(k)},\mu^{(k)}>\\
+-<A(\mu^{(k+1)}-\mu^{(k)}),\mu^{(k+1)}-\mu^{(k)}>\right)=0,\\
+\end{array}
+$$
+and on the other hand
+$$
+\begin{array}{ll}
+<u^{(k+1)}-u^{(k)},\mu^{(k+1)}>&=\tau <B(u^{(k+1)}-u^{(k)}),u^{(k+1)}-u^{(k)}>\\
+&+\Frac{1}{2}\left(<Au^{(k+1)},u^{(k+1)}>
+-<Au^{(k)},u^{(k)}>-<A(u^{(k+1)}-u^{(k)}),u^{(k+1)}-u^{(k)}>\right)
+\end{array}
+$$
+Taking the difference of the last two identities, we obtain 
+$$
+\begin{array}{l}
+\{ \tau<B(u^{(k+1)}-u^{(k)}),u^{(k+1)}-u^{(k)}>-\Frac{1}{2}<B(u^{(k+1)}-u^{(k)}),u^{(k+1)}-u^{(k)}>\}\\
++\Delta t \{\Frac{ \tau}{2}<B(\mu^{(k+1)}-\mu^{(k)}),\mu^{(k+1)}-\mu^{(k)}>-\Frac{1}{2}<B(\mu^{(k+1)}-\mu^{(k)}),\mu^{(k+1)}-\mu^{(k)}>\}\\
++R^{k+1}-R^{k}=0,
+\end{array}
+$$
+where
+$$
+R^{k+1}=\Frac{1}{2} <Au^{(k+1)},u^{(k+1)}>+\Delta t  <B\mu^{(k+1)},\mu^{(k+1)}>
++\Frac{\Delta t}{2}<A\mu^{(k+1)},\mu^{(k+1)}>.
+$$
+The scheme is then stable if $R^{k+1}<R^k$.
+Hence the stability conditions.
+\end{proof}
+We now describe the practical solution. We can write
+$$
+\left(
+\begin{array}{ll}
+Id & \tau \Delta t B\\
+-\epsilon \tau B & Id\\
+\end{array}
+\right)
+\left(
+\begin{array}{l}
+u^{(k+1)}-u^{(k)}\\\
+\mu^{(k+1)}
+\end{array}
+\right)
+=
+\left(
+\begin{array}{l}
+-\Delta t  Au^{(k)}\\
+\epsilon A u^{(k)}+F(u^{(k)})
+\end{array}
+\right)
+$$
+The matrix of the system can be factorized as Block LU
+$$
+M=\left(
+\begin{array}{ll}
+Id & \tau \Delta t B\\
+-\epsilon \tau B & Id\\
+\end{array}
+\right)
+=
+\left(
+\begin{array}{ll}
+Id & 0\\
+-\epsilon \tau B & Id\\
+\end{array}
+\right)
+\left(
+\begin{array}{ll}
+Id & \tau \Delta t B\\
+0& S\\
+\end{array}
+\right)
+$$
+where $S=Id+\tau^2\Delta t \epsilon B^2$ is the Schur complement. We have to solve the coupled linear system
+$$
+\left\{
+\begin{array}{ll}
+ X_1+\tau \Delta t B X_2=F1,\\
+ -\tau \epsilon B X_1+X_2=F_2.
+\end{array}
+$$
+Hence
+$$
+(Id +\tau^2 \Delta t \epsilon B^2)X_2=F_2+\epsilon \tau B F1
+$$
+Then,
+$$
+X_1=F_1-\tau \Delta t B X_2
+$$
+We can resume the solution as
+\begin{center}
+\begin{minipage}[H]{12cm}
+  \begin{algorithm}[H]
+    \caption{: RSS Cahn-Hilliard }\label{CH_RSS}
+    \begin{algorithmic}[1]
+     \For{$k=0,1, \cdots$until convergence}
+           \State {\bf Set } $F_1=-\Delat t A\mu^{(k)}$ and $F_2=-\mu^{(k)}+\epsilon Au^{(k)}+\Frac{1}{\epsilon}f(u^{(k)})$
+             \State {\bf Solve} $ (Id +\tau^2 \Delta t \epsilon B^2)\delta\mu =F_2+\tau\epsilon B F_1$
+              \State {\bf Set} $\mu^{(k+1)}=\mu^{(k)}+\delta\mu$
+               \State {\bf Set } $ u^{(k+1)}=u^{(k)}-\tau \Delta t B \delta \mu$                         
+            \EndFor
+    \end{algorithmic}
+    \end{algorithm}
+\end{minipage}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%NUMERICAL RESULTS
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Numerical Results}
+\subsection{Implementation}
+%
+%Describe here the use of the cos-fft
+%
+The applications we are interested with are Allen-Cahn and Cahn-Hilliard equations to which homogeneous Neumann boundary conditions are associated.
+We proceed as in \cite{Brachet ChehabJSC} and we first discretize in space the equation with high order finite difference compact schemes; the matrix $A$ corresponds then to the laplacien with Homogenous Neumann BC (HNBC).  Matrix $B$ is the (sparse) second order laplacian matrix with HNBC.
+For a fast solution of linear systems in the RSS, we will use the cosine-fft to solve the Neumann problems with matrix $Id +\tau \Delta t B$.
+{\tt test\underline{\ }Neumann\underline{\ }2D.m} is a (non RSS) solver that uses cos-fft for 2D neumann problem on the square
+\subsection{Allen-Cahn equation}
+{\tt Allen\underline{\ }Cahn\underline{\ }fft.m} runs (a non RSS) Allen-Cahn with semi-implicit scheme and cos-fft, see directory AC\underline{\ }CH: this seems correct\\
+Also{\tt Allen\underline{\ }Cahn\underline{\ }fft\underline{\ }3D.m} runs ( a non RSS) Allen-Cahn with semi-implicit scheme and cos-fft, see directory AC\underline{\ }CH: To check
+
+\subsection{Cahn-Hilliard equation}
+USE THE (NON RSS BUT STABILIZED AS IN BERTOZZI PAPER) CODEs IN THE DIRECTORY
+CH\underline{ \ }INPAINTING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%BIBLIOGRAPHY
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+\bibitem{BrachetChehabJSC} Matthieu Brachet, Jean-Paul Chehab,
+Stabilized Times Schemes for High Accurate Finite
+Differences Solutions of Nonlinear Parabolic Equations, J Sci Comput (2016),
+DOI 10.1007/s10915--016--0223--8
+\bibitem{Elliott} C.M. Elliott, The Chan-Hilliard Model for the Kinetics of Phase Separation, 
+{\it in} Mathematical Models for Phase Change Problems, International Series od Numerical Mathematics, Vol. 88, (1989) Birkh\"auser.
+\bibitem{ElliottStuart} C.M. Elliott and A. Stuart The global dynamics of discrete semilinear parabolic equations. SIAM J. Numer. Anal. 30 (1993) 1622--1663.
+\bibitem{JShenACCH} J. Shen, X. Yang, Numerical Approximations of Allen-Cahn and Cahn-Hilliard Equations. DCDS, Series A, (28), (2010), pp 1669--1691.
+\end{thebibliography}
+\end{document}

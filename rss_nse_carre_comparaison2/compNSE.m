@@ -1,5 +1,5 @@
-function [ T, E1_pp, E2_pp, Ei_pp, E1_ww, E2_ww, Ei_ww ] = compNSE(N,dt,Tmax, tau,Re)
-
+function [ T, E1_pp, E2_pp, Ei_pp, E1_ww, E2_ww, Ei_ww, PP, WW ] = compNSE(N,dt,Tmax, tau,Re)
+global extrap
 %% données en espace 1
 N1=N;
 %h1=1/(N1+1);
@@ -35,38 +35,51 @@ T=[];
 while t < Tmax
     clc; [tau t]
     
-    %% discretisation d'espace N1
-    [bx1,by1] = bord(Psi1);
-    [W01] = Convect_diff(dt/2,bx1,by1,Psi1,W1,tau,Re);
-    [Psi01] = Poisson(N1,W01);
+    if strcmp(extrap,'yes')==1
+        %% discretisation d'espace N1
+        [bx1,by1] = bord(Psi1);
+        [W01] = Convect_diff(dt/2,bx1,by1,Psi1,W1,tau,Re);
+        [Psi01] = Poisson(N1,W01);
     
-    [bx1,by1] = bord(Psi01);
-    [W11] = Convect_diff(dt/2,bx1,by1,Psi01,W01,tau,Re);
-    [Psi11] = Poisson(N1,W11);
+        [bx1,by1] = bord(Psi01);
+        [W11] = Convect_diff(dt/2,bx1,by1,Psi01,W01,tau,Re);
+        [Psi11] = Poisson(N1,W11);
     
-    [bx1,by1] = bord(Psi1);
-    [W21] = Convect_diff(dt,bx1,by1,Psi1,W1,tau,Re);
-    [Psi21] = Poisson(N1,W21);
+        [bx1,by1] = bord(Psi1);
+        [W21] = Convect_diff(dt,bx1,by1,Psi1,W1,tau,Re);
+        [Psi21] = Poisson(N1,W21);
     
-    Psi1=2*Psi11-Psi21;
-    W1=2*W11-W21;
+        Psi1=2*Psi11-Psi21;
+        W1=2*W11-W21;
     
-    %% discretisation d'espace N2
-    [bx2,by2] = bord(Psi2);
-    [W02] = Convect_diff(dt/2,bx2,by2,Psi2,W2,tau,Re);
-    [Psi02] = Poisson(N2,W02);
+        %% discretisation d'espace N2
+        [bx2,by2] = bord(Psi2);
+        [W02] = Convect_diff(dt/2,bx2,by2,Psi2,W2,1,Re);
+        [Psi02] = Poisson(N2,W02);
     
-    [bx2,by2] = bord(Psi02);
-    [W12] = Convect_diff(dt/2,bx2,by2,Psi02,W02,tau,Re);
-    [Psi12] = Poisson(N2,W12);
+        [bx2,by2] = bord(Psi02);
+        [W12] = Convect_diff(dt/2,bx2,by2,Psi02,W02,1,Re);
+        [Psi12] = Poisson(N2,W12);
     
-    [bx2,by2] = bord(Psi2);
-    [W22] = Convect_diff(dt,bx2,by2,Psi2,W2,tau,Re);
-    [Psi22] = Poisson(N2,W22);
+        [bx2,by2] = bord(Psi2);
+        [W22] = Convect_diff(dt,bx2,by2,Psi2,W2,1,Re);
+        [Psi22] = Poisson(N2,W22);
     
-    Psi2=2*Psi12-Psi22;
-    W2=2*W12-W22;
+        Psi2=2*Psi12-Psi22;
+        W2=2*W12-W22;
     
+    elseif strcmp(extrap,'no')==1
+        %% discrétisation d'espace N1
+        [bx1,by1] = bord(Psi1);
+        [W1] = Convect_diff(dt,bx1,by1,Psi1,W1,tau,Re);
+        [Psi1] = Poisson(N1,W1);
+        
+        %% discrétisation d'espace N2
+        [bx2,by2] = bord(Psi2);
+        [W2] = Convect_diff(dt,bx2,by2,Psi2,W2,tau,Re);
+        [Psi2] = Poisson(N2,W2);
+    end
+
     %% calcul de l'erreur
     PP1=matrice(Psi1);
     WW1=matrice(W1);
@@ -86,7 +99,7 @@ while t < Tmax
     Ei_pp=[Ei_pp e_pp];
     Ei_ww=[Ei_ww e_ww];
     
-    if Ei_pp(end) > 100 || Ei_ww(end) > 100
+    if Ei_pp(end) > 100 | Ei_ww(end) > 100
         error('instability : choose different dt or tau')
         break
     end
@@ -116,6 +129,9 @@ while t < Tmax
     t=t+dt;
 end
 
+
+PP=PP2c-PP1;
+WW=WW2c-WW1;
 
 end
 

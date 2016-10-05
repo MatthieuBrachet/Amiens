@@ -1,4 +1,6 @@
 clc; clear all; close all;
+% CNRSS !
+
 % si film = 1 : faire le film,
 %    film = 0 : ne pas faire de film.
 film = 0;
@@ -55,15 +57,15 @@ while t<Tmax
     clc; t=t+ddt
     
     % step 1
-    W=(Id+taux*ddt*Ax)\(-ddt*(Zx*U));
+    W=(Id+ddt*Ax)\(-ddt*(Zx*U));
     V1=W+U;
     
     % step 2
-    W=(Id+tauy*ddt*Ay)\(-ddt*(Zy*V1));
+    W=(Id+ddt*Ay)\(-ddt*(Zy*V1));
     V2=W+V1;
     
     % step 3
-    W=(Id+tauz*ddt*Az)\(-ddt*Zz*V2);
+    W=(Id+ddt*Az)\(-ddt*Zz*V2);
     V3=W+V2;
     
     % step 4

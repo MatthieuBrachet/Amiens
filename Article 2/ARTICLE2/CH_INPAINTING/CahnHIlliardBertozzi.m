@@ -62,7 +62,7 @@ MI22=speye(m,m);
 %% TIME LOOP
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %initialization
-initial_type='triangles';
+initial_type='cercles';
             
 [u0,u0h,lambh]=initial(x,y);
 U0=reshape(u0,N*N,1);
@@ -85,8 +85,8 @@ while k < Nmax
     clc; disp(abs(k-Nmax)/Nmax*100)
 
     %Implicit loop in CG
-    NLIN=-U.*(1-U.^2)/epsilon;
-    %NLIN=U.*(4*U.^2-6*U+2)/epsilon;
+    %NLIN=-U.*(1-U.^2)/epsilon;
+    NLIN=U.*(4*U.^2-6*U+2)/epsilon;
     F=[U+dt*C1*LAPLA*U+dt*LAMBH.*(U0);NLIN];
                  
     SOL=MM\F;

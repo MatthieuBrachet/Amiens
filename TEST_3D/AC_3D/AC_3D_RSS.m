@@ -1,6 +1,6 @@
 clc; clear all; close all;
 global X Y Z epsilon
-% CNRSS + Splitting de Lie (x-y-z-NL)
+% RSS + Splitting de Lie (x-y-z-NL)
 
 %% time data
 ddt=10^-4;
@@ -12,7 +12,7 @@ tauy=50;
 tauz=50;
 
 %% space data
-N=40;
+N=32;
 h=1/(N+1);
 x=[0:h:1]';
 [X,Y,Z]=meshgrid(x,x,x);
@@ -88,6 +88,6 @@ end
     
 figure(1)
 plot(TIME,ERR) 
-title('Linear RSS on Allen-Cahn equation')
+title('Linear RSS with Lie Splitting on Allen-Cahn equation')
 xlabel('time')
 ylabel('error')

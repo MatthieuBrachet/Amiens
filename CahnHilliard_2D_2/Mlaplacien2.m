@@ -1,6 +1,8 @@
 function [a0,M,N] = Mlaplacien2(n,order)
 %approximation compacte de '-Delta' a l'ordre 4 + neumann homog�ne
-% n : nombre de discr�tisation en espace
+% n : nombre de points de discr�tisation en espace
+% M : implicit part,
+% N : explicit part.
     h=1/(n+1);
 
 if order == 4
@@ -26,9 +28,4 @@ else
     N(1,1)=1; N(end,end)=1;
     N=N./(h^2);
     a0=1;
-    
-    
-%     A=sparse(diag(-2*ones(n+2,1))+diag(ones(n+1,1),1)+diag(ones(n+1,1),-1));
-%     A(1,2)=2; A(end,end-1)=2;
-%     N=-A./(h^2);
 end

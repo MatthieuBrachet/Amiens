@@ -3,14 +3,14 @@ clear all;
 close all;
 
 %% *** OPTIONS ************************************************************
-film='yes';
-image='europe2';
+film='no';
+image='sat2';
 
 %% *** STABILITY DATA *****************************************************
 ddt=10^-5;
 epsilon=0.03;
 tau=50;
-itermax=1000;
+itermax=50;
 lambda=75000;
 
 %% *** TRAITEMENT DE L'IMAGE **********************************************

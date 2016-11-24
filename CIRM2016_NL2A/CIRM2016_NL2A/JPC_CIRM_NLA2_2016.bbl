@@ -1,0 +1,76 @@
+\begin{thebibliography}
+
+\bibitem[Cohen98]{Cohen}
+A. Averbuch, A. Cohen, M.Israeli,
+\newblock A fast and accurate multiscale scheme for parabolic equations,
+\newblock {\em rapport LAN 1998}, unpublished.
+
+
+\bibitem[Bellavia2014]{Bellabia}
+S. Bellavia, B. Morini, M. Porcelli,
+\newblock New Updates of incomplete LU factorizations and applications to large nonlinear systems,
+\newblock {\em Optimization Methods \& software}, vol 29 pp 321-340, (2014).
+
+\bibitem[BoschKayStollWathen2013]{Bosch} J. Bosch, D. Kay, M. Stoll, and A.J. Wathen, Fast solvers for Cahn–Hilliard inpainting,
+SIAM J. Imag. Sci. 7 (2013), 67–97.
+
+\bibitem[ChehabCS]{ChehabCS} J.-P. Chehab, Incremental Unknowns Method and Compact Schemes , M2AN, 32, 1, (1998), 51-83.
+
+\bibitem[BrachetChehab]{BrachetChehab}
+M. Brachet and J.-P. Chehab
+\newblock Stabilized Times Schemes for High Accurate Finite Differences Solutions of Nonlinear Parabolic Equations
+\newblock  {\em Journal of Scientific Computing}, 1-37 (), 2016, DOI 10.1007/s10915-016-0223-8
+
+
+\bibitem[CalgaroChehabSaad2010]{CalgaroChehabSaad} C. Calgaro, J.-P. Chehab, Y. Saad,
+\newblock Incremental Incomplete LU factorizations with applications to PDES, 
+\newblock {\em Numerical Linear Algebra with Applications},
+vol 17, 5, p 811--837, 2010.
+
+\bibitem[BCostaPHD98]{BCostaPHD} 
+B. Costa, 
+\newblock {\it Time marching techniques for the
+nonlinear Galerkin method}, 
+\newblock {\em Preprint series of the Institute of
+Applied Mathematics and Scientific Computing}, PhD thesis, 
+Bloomington, Indiana, 1998.
+
+\bibitem[CDGT2001]{CDGT} B. Costa. L. Dettori, D. Gottlieb and R. Temam,
+\newblock Time marching techniques for the nonlinear Galerkin method, \newblock {\em SIAM J.
+SC. comp.}, 23, (2001), 1, 46--65.
+
+
+\bibitem[Elliott1989]{Elliott} C.M. Elliott, 
+\newblock The Chan-Hilliard Model for the Kinetics of Phase Separation, 
+\newblock {\it in} Mathematical Models for Phase Change Problems, International Series od Numerical Mathematics, 
+Vol. 88, (1989) Birkh\"auser.
+
+
+\bibitem[ElliottStuart1993]{ElliottStuart} 
+C.M. Elliott and A. Stuart 
+\newblock The global dynamics of discrete semilinear parabolic equations. 
+\newblock {\em SIAM J. Numer. Anal.} 30 (1993) 1622--1663.
+
+\bibitem[Eyre1998]{Eyre} 
+D. J. Eyre, 
+\newblock Unconditionallly Stable One-step Scheme for Gradient Systems,
+\newblock June 1998, unpublished, 
+\newblock http://www.math.utah.edu/eyre/research/methods/stable.ps.
+
+
+\bibitem[Lele1992]{Lele} S. Lele, 
+\newblock Compact Difference Schemes with Spectral Like resolution,
+\newblock {\em J. Comp. Phys.}, 103, (1992), 16--42
+
+\bibitem[JShenACCH2010]{JShenACCH}
+J. Shen and X. Yang,
+\newblock Numerical Approximations of Allen-Cahn and Cahn-Hilliard Equations. 
+\newblock {\em DCDS, Series A}, (28), (2010), pp 1669--1691.
+
+
+\bibitem[RibotSchatzman2011]{RibotSchatzman}
+M. Ribot and M. Schatzman
+\newblock Stability, convergence and order of the extrapolations of the Residual Smoothing Scheme in energy norm
+\newblock {\em Confluentes Math.} 3 (2011), no. 3, 495--521.
+
+\end{thebibliography}

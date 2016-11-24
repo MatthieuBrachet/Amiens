@@ -1,0 +1,15 @@
+\BOOKMARK [2][]{Outline0.1}{Motivation}{}% 1
+\BOOKMARK [2][]{Outline0.2}{General framework}{}% 2
+\BOOKMARK [2][]{Outline0.3}{Stability results - Accuracy of the schemes}{}% 3
+\BOOKMARK [3][]{Outline0.3.1.14}{The linear case}{Outline0.3}% 4
+\BOOKMARK [3][]{Outline0.3.2.17}{Nonlinear case}{Outline0.3}% 5
+\BOOKMARK [3][]{Outline0.3.3.19}{Improving the accuracy by extrapolation}{Outline0.3}% 6
+\BOOKMARK [3][]{Outline0.3.4.21}{Further developments}{Outline0.3}% 7
+\BOOKMARK [2][]{Outline0.4}{Discretisation in space and preconditioning}{}% 8
+\BOOKMARK [3][]{Outline0.4.1.23}{Compact Schemes}{Outline0.4}% 9
+\BOOKMARK [3][]{Outline0.4.2.26}{preconditioning and applications}{Outline0.4}% 10
+\BOOKMARK [2][]{Outline0.5}{Applications}{}% 11
+\BOOKMARK [3][]{Outline0.5.1.31}{NSE}{Outline0.5}% 12
+\BOOKMARK [3][]{Outline0.5.2.43}{Phase Fields: Allen-Cahn equation for the Phase separation}{Outline0.5}% 13
+\BOOKMARK [3][]{Outline0.5.3.45}{Phase Fields: Cahn-Hilliard for inpainting}{Outline0.5}% 14
+\BOOKMARK [2][]{Outline0.6}{Concluding Remarks}{}% 15

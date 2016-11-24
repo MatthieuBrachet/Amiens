@@ -1,0 +1,17 @@
+\beamer@endinputifotherversion {3.20pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Motivation}{3}{0}{1}
+\beamer@sectionintoc {2}{General framework}{9}{0}{2}
+\beamer@sectionintoc {3}{Stability results - Accuracy of the schemes}{14}{0}{3}
+\beamer@subsectionintoc {3}{1}{The linear case}{14}{0}{3}
+\beamer@subsectionintoc {3}{2}{Nonlinear case}{17}{0}{3}
+\beamer@subsectionintoc {3}{3}{Improving the accuracy by extrapolation}{19}{0}{3}
+\beamer@subsectionintoc {3}{4}{Further developments}{21}{0}{3}
+\beamer@sectionintoc {4}{Discretisation in space and preconditioning}{23}{0}{4}
+\beamer@subsectionintoc {4}{1}{Compact Schemes}{23}{0}{4}
+\beamer@subsectionintoc {4}{2}{preconditioning and applications}{26}{0}{4}
+\beamer@sectionintoc {5}{Applications}{31}{0}{5}
+\beamer@subsectionintoc {5}{1}{NSE}{31}{0}{5}
+\beamer@subsectionintoc {5}{2}{Phase Fields: Allen-Cahn equation for the Phase separation}{43}{0}{5}
+\beamer@subsectionintoc {5}{3}{Phase Fields: Cahn-Hilliard for inpainting}{45}{0}{5}
+\beamer@sectionintoc {6}{Concluding Remarks}{53}{0}{6}

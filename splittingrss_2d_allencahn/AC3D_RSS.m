@@ -1,4 +1,6 @@
 clc; clear all; close all;
+global epsilon
+% mesure erreur
 % si film = 1 : faire le film,
 %    film = 0 : ne pas faire de film.
 film = 0;
@@ -13,8 +15,9 @@ if film==1
     fig=figure;
 end
 
-Tmax=0.4;
+Tmax=0.5;
 ddt=10^-3;
+tau=1;
 
 N=20;
 h=1/(N+1);
@@ -22,7 +25,7 @@ x=[0:h:1]';
 [X,Y,Z]=meshgrid(x,x,x);
 
 %U=2*rand(size(X))-1;
-U=cos(pi*X).*cos(pi*Y).*cos(pi*Z);
+U=sol_exacte3D(X,Y,Z,0);
 U=reshape(U,[],1);
 epsilon=0.01;
 
@@ -51,19 +54,22 @@ Az=kron(kron(id,id), A);
 Id=speye(size(Ax));
 
 t=0;
+T=[]; E=[];
 while t<Tmax
     clc; t=t+ddt
     
     % step 1
-    W=(Id+ddt*Ax)\(-ddt*(Zx*U));
+    W=(Id+tau*ddt*Ax)\(-ddt*(Zx*U));
     V1=W+U;
     
     % step 2
-    W=(Id+ddt*Ay)\(-ddt*(Zy*V1));
+    W=(Id+tau*ddt*Ay)\(-ddt*(Zy*V1));
     V2=W+V1;
     
     % step 3
-    W=(Id+ddt*Az)\(-ddt*Zz*V2);
+    f=sm3D(X,Y,Z,t);
+    f=reshape(f,[],1);
+    W=(Id+tau*ddt*Az)\(-ddt*Zz*V2-ddt*f);
     V3=W+V2;
     
     % step 4
@@ -71,6 +77,7 @@ while t<Tmax
     denom=V3.^2+(1-V3.^2).*exp(-2*ddt/(epsilon^2));
     denom=sqrt(denom);
     U=nom./denom;
+
     
     if film == 1
         % plot
@@ -89,6 +96,13 @@ while t<Tmax
         
         close (1)
     end
+    
+    Uex=sol_exacte3D(X,Y,Z,t);
+    uex=reshape(Uex,[],1);
+    
+    e=norm(uex-U);
+    E=[E e];
+    T=[T t];
 
 end
 
@@ -115,3 +129,6 @@ end
 
 figure(1)
 isosurface(X,Y,Z,reshape(U,size(X)))
+
+figure(2)
+semilogy(T,E)

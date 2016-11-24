@@ -5,9 +5,6 @@ film = 0;
 
 ref=floor(10000*now);
 if film==1
-    % options de film
-    %nbim=1000;%(=5 when dt=0.01)
-    
     mkdir(['./video-' date ])
     mov=avifile(['./video-' date '/ref_' num2str(ref) '_AC.avi'],'compression','None');
     fig=figure;

@@ -8,16 +8,15 @@ global barx bary barz centre
 global test
 
 %% video options
-nper=2;
 film='yes';
 
 %%
-test=2;
-barx=0.1; bary=.5; barz=.15;
-centre=[.5 .25 .4];
+test=3;
+barx=.8; bary=.1; barz=.8;
+centre=[.5 .5 .5];
 N=20;
 h=1/(N+1);
-epsilon=0.01;
+epsilon=0.05;
 lambda=100000;
 
 %% matrix
@@ -30,7 +29,7 @@ ID=speye(size(A4));
 
 %% time data
 ddt=1e-7;
-Tmax=300*ddt;
+Tmax=100*ddt;
 t=0;
 tau=1;
 
@@ -50,21 +49,10 @@ ZZ=ddt*tau*A2;
 XX=(-epsilon*tau*A2)*inD;
 WW=ID-XX*YY;
 
-if strcmp(film,'yes')==1   
-    nFrames = floor(Tmax./(ddt*nper));
-    mov(1:nFrames) = struct('cdata', [],'colormap', []);
-    set(gca,'nextplot','replacechildren');
-    
-%     vidObj=VideoWriter(['inpainting' num2str(test) '.avi']);
-%     open(vidObj);
-end
-
-
-
-
-
+iter=0;
 while t<Tmax
     t=t+ddt;
+    iter=iter+1;
     iter=floor(t/ddt);
     clc; disp([iter,mean(u)]);
     
@@ -76,27 +64,10 @@ while t<Tmax
     u=u+x1;
     w=w+x2;
     
-    if strcmp(film,'yes')==1 && mod(iter,nper)==0
-        im_t=reshape(u,size(X));
-        
-        figure(100)
-        isosurface(X,Y,Z,im_t)
-        axis([0 1 0 1 0 1])
-        grid on
-        
-        mov(iter/nper) = getframe(gca);
-        %currFrame = getframe(gcf, [0 0 436 344]);;
-        %writeVideo(vidObj,currFrame);
-        
-        hold off
-        close 100
+    if strcmp(film,'yes')==1
+        im_v(:,:,:,iter)=reshape(u,size(X));
     end
     
-end
-
-if strcmp(film,'yes')==1 
-    %close(vidObj);
-    movie2avi(mov, ['inpainting' num2str(test) '.avi'], 'compression', 'None');
 end
 
 

@@ -23,8 +23,10 @@ elseif test == 2
             end
         end
     end
-
-    
+elseif test == 3
+    f=(abs(x-0.5)<0.1).*(abs(y-0.5)<1).*(abs(z-0.5)<.1);
+    f=f+(abs(x-0.25)<0.1).*(abs(y-0.25)<1).*(abs(z-0.25)<.1);
+    f=f+(abs(x-0.75)<0.1).*(abs(y-0.75)<1).*(abs(z-0.75)<.1);
 end
 f=2*f-1;
 ind=indicatrice(x,y,z,barx,bary,barz);

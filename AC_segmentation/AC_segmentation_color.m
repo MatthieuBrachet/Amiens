@@ -9,12 +9,12 @@ film='no';
 ddt=10^-5;
 epsilon=0.01;
 tau=50;
-itermax=1000;
+itermax=100;
 lambda=75000;
 
 %% *** TRAITEMENT DE L'IMAGE **********************************************
 % lecture de l'image
-image='peppers.jpeg';
+image='salon.jpg';
 RGB = imread(image);
 N=min(size(RGB(:,:,1)));
 RGB=RGB(1:N,1:N,1:3);

@@ -4,14 +4,14 @@ close all;
 
 %% *** OPTIONS ************************************************************
 film='no';
-image='sat2';
+image='salon';
 
 %% *** STABILITY DATA *****************************************************
 ddt=10^-5;
-epsilon=0.03;
+epsilon=.01;
 tau=50;
-itermax=50;
-lambda=75000;
+itermax=20;
+lambda=90000;
 
 %% *** TRAITEMENT DE L'IMAGE **********************************************
 % lecture de l'image

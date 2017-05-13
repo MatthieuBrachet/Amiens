@@ -13,11 +13,11 @@ test=4;
 fun='classic'; %% classic or bertozzi
 label='fft'
 %% *** Physical data
-epsilon=0.1;
+epsilon=0.05;
 %% *** time data **********************************************************
 t=0;
 ddt=10^-6;
-Tmax=0.0005;
+Tmax=10*ddt;
 tau=1000;
 iter=0;
 %% *** space data *********************************************************
@@ -43,9 +43,9 @@ Ny=kron(id,NN);
 N=Nx+Ny;
 %frequency array
 
-        %
-        %2D Neumann Frequency Matrix
-        %
+%         
+%         2D Neumann Frequency Matrix
+%         
   NX=n+2;
   DX2=cos(pi*(0:NX-1)'*ones(1,NX)*h);
   DY2=cos(pi*ones(NX,1)*(0:NX-1)*h);
@@ -101,7 +101,7 @@ while t<=Tmax
     
     if strcmp(film,'yes')==1 & mod(iter,nper)==0
         figure(1)
-        contourf(X,Y,reshape(triche(U),size(X)))
+        contourf(X,Y,reshape((U),size(X)))
         xlabel('x')
         ylabel('y')
         colorbar

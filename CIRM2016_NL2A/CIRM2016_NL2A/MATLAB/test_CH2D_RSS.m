@@ -9,9 +9,9 @@ film='no';
 nper=10;
 test=4;
 fun='bertozzi'; %% classic or bertozzi
-initial_type='triangles';
+initial_type='cercles';
 %% *** numerical data
-n=64;
+n=128;
 %% *** space data *********************************************************
 h=1/(n+1);
 x=[0:h:1];y=x;
@@ -37,14 +37,13 @@ N=Nx+Ny;
 
 %% *** time data **********************************************************
 t=0;
-ddt=10^-3;
-Tmax=0.1;
-tau=1.4;
+ddt=0.001;
+Tmax=14*ddt;
+tau=1.5;
 iter=0;
 
 %% *** mathematical data **************************************************
 epsilon=0.05;
-%
 %INITILISATION
 %
 %[u,unp]=initial_fun(X,Y);
@@ -55,13 +54,13 @@ epsilon=0.05;
 m=n+2;
 mdim=m*m;
 [u0,u0h,lambh]=initial(x,y);
-            U0=reshape(u0,m*m,1);
-            U0H=reshape(u0h,m*m,1);
-            LAMBH=reshape(lambh,m*m,1);
-            %MI11=MI11+dt*spdiags(LAMBH, 0, m, m);
-            %MM=[MI11 MI12; MI21 MI22];
-            %W0H=AA*(U0H+(4*U0H.^2-6*U0H+2)/epsilon);
-            U=U0H;
+U0=reshape(u0,m*m,1);
+U0H=reshape(u0h,m*m,1);
+LAMBH=reshape(lambh,m*m,1);
+%             MI11=MI11+dt*spdiags(LAMBH, 0, m, m);
+%             MM=[MI11 MI12; MI21 MI22];
+%             W0H=AA*(U0H+(4*U0H.^2-6*U0H+2)/epsilon);
+U=U0H;
 %*********************************************
 %*********************************************
 W=epsilon*(M\(N*U))+(1/epsilon).*U.*(U.^2-1);
@@ -93,7 +92,7 @@ while t<=Tmax
     elseif strcmp(fun,'bertozzi') == 1
         NL=U.*(4*U.^2-6*U+2);
     else
-        error('This non linear part does not exist. Error in ''fun'' charracters. ')
+        error('This non linear part does not exist. Error in ''fun'' characters. ')
     end
     f=-LAMBH.*(U0-U);
     b=[-ddt*LW1-ddt*f; epsilon*LU1-W+(1/epsilon)*NL];

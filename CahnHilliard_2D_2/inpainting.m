@@ -7,12 +7,12 @@ global WW XX YY ZZ
 global barx bary
 global test
 
-test=2;
+test=1;
 barx=0.5; bary=0.5;
-N=30;
+N=64;
 h=1/(N+1);
-epsilon=0.02;
-lambda=50000;
+epsilon=0.1;
+lambda=90000;
 
 %% matrices
 [a0,id,NN] = Mlaplacien2(N,2);
@@ -23,10 +23,10 @@ A4=kron(A4,id)+kron(id,A4);
 ID=speye(size(A4));
 
 %% time data
-ddt=1e-6;
-Tmax=2000*ddt;
+ddt=1e-3;
+Tmax=1e-2;
 t=0;
-tau=10;
+tau=10000;
 
 %% data
 x=0:h:1;

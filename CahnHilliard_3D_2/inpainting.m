@@ -12,7 +12,7 @@ film='yes';
 
 %%
 test=3;
-barx=.8; bary=.1; barz=.8;
+barx=.99; bary=.1; barz=.99;
 centre=[.5 .5 .5];
 N=20;
 h=1/(N+1);
@@ -29,7 +29,7 @@ ID=speye(size(A4));
 
 %% time data
 ddt=1e-7;
-Tmax=100*ddt;
+Tmax=30*ddt;
 t=0;
 tau=1;
 
@@ -43,11 +43,15 @@ u=u0;
 w=epsilon*A4*u+(1./epsilon).*u.*(u.^2-1);
 
 %% solver
-YY=sparse(ID+ddt*lambda*ind);
-inD=inv(YY);
-ZZ=ddt*tau*A2;
-XX=(-epsilon*tau*A2)*inD;
-WW=ID-XX*YY;
+% YY=sparse(ID+ddt*lambda*ind);
+% inD=inv(YY);
+% ZZ=ddt*tau*A2;
+% XX=(-epsilon*tau*A2)*inD;
+% WW=ID-XX*YY;
+
+XX=sparse(ID+lambda*ind+tau*tau*ddt*epsilon*A2^2);
+YY=-tau*ddt*A2;
+ZZ=epsilon*tau*A2;
 
 iter=0;
 while t<Tmax
@@ -59,7 +63,7 @@ while t<Tmax
     b1=ddt*(-A4*w+lambda*ind*(u0-u));
     b2=epsilon*A4*u-w+(1/epsilon)*u.*(u.^2-1);
     
-    [x1,x2]=solver2(b1,b2);
+    [x1,x2]=solver3(b1,b2);
     
     u=u+x1;
     w=w+x2;

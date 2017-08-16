@@ -1,0 +1,20 @@
+function [ u0, u, ind ] = initialdata(X,Y,test)
+
+if test == 0
+    ind=1-(abs(X-.5)<.3).*(abs(Y-.5)<.05);
+    u0=2*(abs(X-.5)<.1)-1;
+    u0=u0.*ind;
+    u=u0;
+    
+elseif test == 1
+    ind=1-(abs(X-.5)<.25).*(abs(Y-.5)<.25);
+    rayon=0.1;
+    u0=(sqrt((X-.25).^2+(Y-.25).^2)<rayon);
+    u0=u0+(sqrt((X-.75).^2+(Y-.25).^2)<rayon);
+    u0=u0+(sqrt((X-.25).^2+(Y-.75).^2)<rayon);
+    u0=u0+(sqrt((X-.75).^2+(Y-.75).^2)<rayon);
+    u0=2*u0-1;
+    u0
+
+end
+

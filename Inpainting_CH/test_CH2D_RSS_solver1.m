@@ -11,7 +11,7 @@ film='no';
 nper=5;
 test=4;
 fun='classic'; %% classic or bertozzi
-label='fft'
+label='classic';
 %% *** Physical data
 epsilon=0.1;
 %% *** time data **********************************************************
